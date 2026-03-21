@@ -31,12 +31,10 @@ html{scroll-behavior:smooth;}
 body{background:var(--void);color:var(--text-primary);font-family:var(--fb);font-weight:300;line-height:1.6;overflow-x:hidden;}
 body.cursor-ready,body.cursor-ready *{cursor:none!important;}
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:0.3;}
-#cur{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,width .25s,height .25s,background .25s;box-shadow:0 0 8px var(--gold),0 0 16px rgba(201,168,76,0.4);}
-#cur-ring{position:fixed;width:36px;height:36px;border:1px solid var(--gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s ease,top .1s ease,width .25s,height .25s,border-color .25s;}
-#cur-ring::before{content:'';position:absolute;top:50%;left:-8px;width:6px;height:1px;background:var(--gold);transform:translateY(-50%);}
-#cur-ring::after{content:'';position:absolute;top:50%;right:-8px;width:6px;height:1px;background:var(--gold);transform:translateY(-50%);}
-#cur-vline-top{position:fixed;width:1px;height:6px;background:var(--gold);pointer-events:none;z-index:9998;transform:translate(-50%,-100%) translateY(-12px);}
-#cur-vline-bot{position:fixed;width:1px;height:6px;background:var(--gold);pointer-events:none;z-index:9998;transform:translate(-50%,12px);}
+#cur-dot{position:fixed;width:4px;height:4px;background:#fff;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 4px #fff,0 0 10px var(--gold),0 0 20px rgba(201,168,76,0.5);}
+#cur-ring{position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s ease,top .1s ease;}
+@keyframes cur-spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+@keyframes cur-glow{0%,100%{opacity:1;}50%{opacity:0.4;}}
 #bg-canvas{position:fixed;inset:0;z-index:0;opacity:0.28;}
 main{position:relative;z-index:2;}
 
@@ -267,10 +265,32 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:1.
 </style>
 </head>
 <body>
-<div id="cur"></div>
-<div id="cur-ring"></div>
-<div id="cur-vline-top"></div>
-<div id="cur-vline-bot"></div>
+<div id="cur-dot"></div>
+<div id="cur-ring">
+<svg id="cur-svg" width="60" height="60" viewBox="-30 -30 60 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow"><feGaussianBlur stdDeviation="1.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <g id="spin-group" style="animation:cur-spin 8s linear infinite;">
+    <circle cx="0" cy="0" r="20" fill="none" stroke="rgba(201,168,76,0.25)" stroke-width="0.5"/>
+    <circle cx="0" cy="-20" r="1.5" fill="#c9a84c" filter="url(#glow)"/>
+    <circle cx="0" cy="20" r="1.5" fill="#c9a84c" filter="url(#glow)"/>
+    <circle cx="-20" cy="0" r="1.5" fill="#c9a84c" filter="url(#glow)"/>
+    <circle cx="20" cy="0" r="1.5" fill="#c9a84c" filter="url(#glow)"/>
+    <path d="M -20 -3 L -20 -20 L -3 -20" fill="none" stroke="#c9a84c" stroke-width="1" filter="url(#glow)"/>
+    <path d="M 3 -20 L 20 -20 L 20 -3" fill="none" stroke="#c9a84c" stroke-width="1" filter="url(#glow)"/>
+    <path d="M 20 3 L 20 20 L 3 20" fill="none" stroke="#c9a84c" stroke-width="1" filter="url(#glow)"/>
+    <path d="M -3 20 L -20 20 L -20 3" fill="none" stroke="#c9a84c" stroke-width="1" filter="url(#glow)"/>
+  </g>
+  <g id="static-group">
+    <line x1="0" y1="-26" x2="0" y2="-23" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
+    <line x1="0" y1="23" x2="0" y2="26" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
+    <line x1="-26" y1="0" x2="-23" y2="0" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
+    <line x1="23" y1="0" x2="26" y2="0" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
+    <circle cx="0" cy="0" r="14" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="0.5" stroke-dasharray="2 4"/>
+  </g>
+</svg>
+</div>
 <canvas id="bg-canvas"></canvas>
 
 <!-- NAV -->
@@ -587,7 +607,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:1.
         <div class="pdr"><span class="dk">Implementations</span><span class="dv">200+ production</span></div>
         <div class="pdr"><span class="dk">Contributions</span><span class="dv">1,794 total</span></div>
         <div class="pdr"><span class="dk">Active Streak</span><span class="dv go">41 days</span></div>
-        <div class="pdr"><span class="dk">Certifications</span><span class="dv">AWS · AZ-900 · Google IT</span></div>
+        <div class="pdr"><span class="dk">Certifications</span><span class="dv">AWS CCP · AZ-900 · Google IT</span></div>
         <div class="pdr"><span class="dk">Email</span><span class="dv"><a href="mailto:edeharinze389@gmail.com" style="color:var(--cyan);text-decoration:none">edeharinze389@gmail.com</a></span></div>
         <div class="pdr"><span class="dk">GitHub</span><span class="dv"><a href="https://github.com/arinze-edeh" target="_blank" style="color:var(--cyan);text-decoration:none">arinze-edeh</a></span></div>
       </div>
@@ -609,9 +629,9 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:1.
       <a href="https://github.com/arinze-edeh" target="_blank" class="btn-g">View GitHub Portfolio →</a>
     </div>
     <div class="cr">
-      <a href="/cdn-cgi/l/email-protection#d3b6b7b6bbb2a1babda9b6e0ebea93b4beb2babffdb0bcbe" class="ci-item">
+      <a href="mailto:edeharinze389@gmail.com" class="ci-item">
         <div class="ci-ico">@</div>
-        <div><div class="ci-lbl">Email</div><div class="ci-val"><span class="__cf_email__" data-cfemail="0d686968656c7f646377683e35344d6a606c6461236e6260">[email&#160;protected]</span></div></div>
+        <div><div class="ci-lbl">Email</div><div class="ci-val">edeharinze389@gmail.com</div></div>
         <span class="ci-arr">→</span>
       </a>
       <a href="https://github.com/arinze-edeh" target="_blank" class="ci-item">
@@ -650,34 +670,29 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:1.
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring'),vtop=document.getElementById('cur-vline-top'),vbot=document.getElementById('cur-vline-bot');
-let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my,started=false;
-function showCursor(){
-  if(!started){started=true;document.body.classList.add('cursor-ready');cur.style.opacity='1';ring.style.opacity='1';vtop.style.opacity='1';vbot.style.opacity='1';}
-}
+const dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring'),svg=document.getElementById('cur-svg'),spinG=document.getElementById('spin-group');
+let mx=0,my=0,rx=0,ry=0,started=false;
+dot.style.opacity='0'; ring.style.opacity='0';
 document.addEventListener('mousemove',function(e){
   mx=e.clientX; my=e.clientY;
-  cur.style.left=mx+'px'; cur.style.top=my+'px';
-  vtop.style.left=mx+'px'; vtop.style.top=my+'px';
-  vbot.style.left=mx+'px'; vbot.style.top=my+'px';
-  showCursor();
+  dot.style.left=mx+'px'; dot.style.top=my+'px';
+  if(!started){started=true;document.body.classList.add('cursor-ready');dot.style.opacity='1';ring.style.opacity='1';}
 });
-cur.style.opacity='0'; ring.style.opacity='0'; vtop.style.opacity='0'; vbot.style.opacity='0';
 (function loop(){
-  rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
+  rx+=(mx-rx)*.09; ry+=(my-ry)*.09;
   ring.style.left=rx+'px'; ring.style.top=ry+'px';
   requestAnimationFrame(loop);
 })();
 document.querySelectorAll('a,button').forEach(function(el){
   el.addEventListener('mouseenter',function(){
-    cur.style.width='12px'; cur.style.height='12px';
-    ring.style.width='52px'; ring.style.height='52px';
-    ring.style.borderColor='var(--gold-light)';
+    dot.style.width='8px'; dot.style.height='8px';
+    svg.style.transform='scale(1.4)';
+    spinG.style.animationDuration='3s';
   });
   el.addEventListener('mouseleave',function(){
-    cur.style.width='6px'; cur.style.height='6px';
-    ring.style.width='36px'; ring.style.height='36px';
-    ring.style.borderColor='var(--gold)';
+    dot.style.width='4px'; dot.style.height='4px';
+    svg.style.transform='scale(1)';
+    spinG.style.animationDuration='8s';
   });
 });
 
@@ -688,5 +703,4 @@ resize();window.addEventListener('resize',resize);
 for(let i=0;i<55;i++)nodes.push({x:Math.random()*screen.width,y:Math.random()*screen.height,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.4+.4});
 (function draw(){
   ctx.clearRect(0,0,W,H);
-  for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<130){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle=`rgba(201,168,76,${.07*(1-d/130)})`;ctx.lineWidth=.5;ctx.stroke();}}
-  for(const n of nodes){ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle='rgba(201,16
+  for(let i=0;i<nodes.length;i++
