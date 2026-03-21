@@ -28,7 +28,8 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{background:var(--void);color:var(--text-primary);font-family:var(--fb);font-weight:300;line-height:1.6;overflow-x:hidden;cursor:none;}
+body{background:var(--void);color:var(--text-primary);font-family:var(--fb);font-weight:300;line-height:1.6;overflow-x:hidden;}
+body.cursor-ready,body.cursor-ready *{cursor:none!important;}
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:0.3;}
 #cur{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,width .25s,height .25s,background .25s;box-shadow:0 0 8px var(--gold),0 0 16px rgba(201,168,76,0.4);}
 #cur-ring{position:fixed;width:36px;height:36px;border:1px solid var(--gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s ease,top .1s ease,width .25s,height .25s,border-color .25s;}
@@ -587,7 +588,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:1.
         <div class="pdr"><span class="dk">Contributions</span><span class="dv">1,794 total</span></div>
         <div class="pdr"><span class="dk">Active Streak</span><span class="dv go">41 days</span></div>
         <div class="pdr"><span class="dk">Certifications</span><span class="dv">AWS · AZ-900 · Google IT</span></div>
-        <div class="pdr"><span class="dk">Email</span><span class="dv"><a href="/cdn-cgi/l/email-protection#6f0a0b0a070e1d0601150a5c57562f08020e0603410c0002" style="color:var(--cyan);text-decoration:none"><span class="__cf_email__" data-cfemail="31545554595043585f4b5402090871565c50585d1f525e5c">[email&#160;protected]</span></a></span></div>
+        <div class="pdr"><span class="dk">Email</span><span class="dv"><a href="mailto:edeharinze389@gmail.com" style="color:var(--cyan);text-decoration:none">edeharinze389@gmail.com</a></span></div>
         <div class="pdr"><span class="dk">GitHub</span><span class="dv"><a href="https://github.com/arinze-edeh" target="_blank" style="color:var(--cyan);text-decoration:none">arinze-edeh</a></span></div>
       </div>
     </div>
@@ -650,13 +651,18 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:1.
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring'),vtop=document.getElementById('cur-vline-top'),vbot=document.getElementById('cur-vline-bot');
-let mx=0,my=0,rx=0,ry=0;
+let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my,started=false;
+function showCursor(){
+  if(!started){started=true;document.body.classList.add('cursor-ready');cur.style.opacity='1';ring.style.opacity='1';vtop.style.opacity='1';vbot.style.opacity='1';}
+}
 document.addEventListener('mousemove',function(e){
   mx=e.clientX; my=e.clientY;
   cur.style.left=mx+'px'; cur.style.top=my+'px';
   vtop.style.left=mx+'px'; vtop.style.top=my+'px';
   vbot.style.left=mx+'px'; vbot.style.top=my+'px';
+  showCursor();
 });
+cur.style.opacity='0'; ring.style.opacity='0'; vtop.style.opacity='0'; vbot.style.opacity='0';
 (function loop(){
   rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
   ring.style.left=rx+'px'; ring.style.top=ry+'px';
