@@ -29,10 +29,10 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--void);color:var(--text-primary);font-family:var(--fb);font-weight:300;line-height:1.6;overflow-x:hidden;}
-body.cursor-ready,body.cursor-ready *{cursor:none!important;}
+html,html *,body,body *,a,button,div,span,p,h1,h2,h3,section,nav,table,td,tr,th{cursor:none!important;}
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:0.3;}
-#cur-dot{position:fixed;width:4px;height:4px;background:#fff;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 4px #fff,0 0 10px var(--gold),0 0 20px rgba(201,168,76,0.5);}
-#cur-ring{position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s ease,top .1s ease;}
+#cur-dot{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 0 2px rgba(201,168,76,0.3),0 0 12px var(--gold),0 0 30px rgba(201,168,76,0.5),0 0 60px rgba(201,168,76,0.2);transition:width .2s,height .2s;}
+#cur-ring{position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .08s ease,top .08s ease;}
 @keyframes cur-spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 @keyframes cur-glow{0%,100%{opacity:1;}50%{opacity:0.4;}}
 #bg-canvas{position:fixed;inset:0;z-index:0;opacity:0.28;}
@@ -267,27 +267,40 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:1.
 <body>
 <div id="cur-dot"></div>
 <div id="cur-ring">
-<svg id="cur-svg" width="60" height="60" viewBox="-30 -30 60 60" xmlns="http://www.w3.org/2000/svg">
+<svg id="cur-svg" width="80" height="80" viewBox="-40 -40 80 80" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="glow"><feGaussianBlur stdDeviation="1.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <g id="spin-group" style="animation:cur-spin 8s linear infinite;">
-    <circle cx="0" cy="0" r="20" fill="none" stroke="rgba(201,168,76,0.25)" stroke-width="0.5"/>
-    <circle cx="0" cy="-20" r="1.5" fill="#c9a84c" filter="url(#glow)"/>
-    <circle cx="0" cy="20" r="1.5" fill="#c9a84c" filter="url(#glow)"/>
-    <circle cx="-20" cy="0" r="1.5" fill="#c9a84c" filter="url(#glow)"/>
-    <circle cx="20" cy="0" r="1.5" fill="#c9a84c" filter="url(#glow)"/>
-    <path d="M -20 -3 L -20 -20 L -3 -20" fill="none" stroke="#c9a84c" stroke-width="1" filter="url(#glow)"/>
-    <path d="M 3 -20 L 20 -20 L 20 -3" fill="none" stroke="#c9a84c" stroke-width="1" filter="url(#glow)"/>
-    <path d="M 20 3 L 20 20 L 3 20" fill="none" stroke="#c9a84c" stroke-width="1" filter="url(#glow)"/>
-    <path d="M -3 20 L -20 20 L -20 3" fill="none" stroke="#c9a84c" stroke-width="1" filter="url(#glow)"/>
+  <!-- Outer spinning ring with brackets -->
+  <g id="spin-group" style="animation:cur-spin 6s linear infinite;">
+    <circle cx="0" cy="0" r="28" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="0.5" stroke-dasharray="3 6"/>
+    <!-- Corner brackets -->
+    <path d="M -28 -6 L -28 -28 L -6 -28" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" filter="url(#glow)"/>
+    <path d="M 6 -28 L 28 -28 L 28 -6" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" filter="url(#glow)"/>
+    <path d="M 28 6 L 28 28 L 6 28" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" filter="url(#glow)"/>
+    <path d="M -6 28 L -28 28 L -28 6" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" filter="url(#glow)"/>
+    <!-- Orbit dots -->
+    <circle cx="0" cy="-28" r="2" fill="#e4c97e" filter="url(#glow2)"/>
+    <circle cx="28" cy="0" r="1.5" fill="#c9a84c" filter="url(#glow)"/>
+    <circle cx="0" cy="28" r="2" fill="#e4c97e" filter="url(#glow2)"/>
+    <circle cx="-28" cy="0" r="1.5" fill="#c9a84c" filter="url(#glow)"/>
   </g>
+  <!-- Inner static elements -->
   <g id="static-group">
-    <line x1="0" y1="-26" x2="0" y2="-23" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
-    <line x1="0" y1="23" x2="0" y2="26" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
-    <line x1="-26" y1="0" x2="-23" y2="0" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
-    <line x1="23" y1="0" x2="26" y2="0" stroke="rgba(201,168,76,0.8)" stroke-width="1"/>
-    <circle cx="0" cy="0" r="14" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="0.5" stroke-dasharray="2 4"/>
+    <!-- Inner dashed circle -->
+    <circle cx="0" cy="0" r="16" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="0.5" stroke-dasharray="1 3"/>
+    <!-- Tick marks -->
+    <line x1="0" y1="-33" x2="0" y2="-30" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" filter="url(#glow)"/>
+    <line x1="0" y1="30" x2="0" y2="33" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" filter="url(#glow)"/>
+    <line x1="-33" y1="0" x2="-30" y2="0" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" filter="url(#glow)"/>
+    <line x1="30" y1="0" x2="33" y2="0" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" filter="url(#glow)"/>
   </g>
 </svg>
 </div>
@@ -608,7 +621,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:1.
         <div class="pdr"><span class="dk">Contributions</span><span class="dv">1,794 total</span></div>
         <div class="pdr"><span class="dk">Active Streak</span><span class="dv go">41 days</span></div>
         <div class="pdr"><span class="dk">Certifications</span><span class="dv">AWS CCP · AZ-900 · Google IT</span></div>
-        <div class="pdr"><span class="dk">Email</span><span class="dv"><a href="mailto:edeharinze389@gmail.com" style="color:var(--cyan);text-decoration:none">edeharinze389@gmail.com</a></span></div>
+        <div class="pdr"><span class="dk">Email</span><span class="dv"><a href="/cdn-cgi/l/email-protection#9cf9f8f9f4fdeef5f2e6f9afa4a5dcfbf1fdf5f0b2fff3f1" style="color:var(--cyan);text-decoration:none"><span class="__cf_email__" data-cfemail="076263626f66756e697d62343f3e47606a666e6b2964686a">[email&#160;protected]</span></a></span></div>
         <div class="pdr"><span class="dk">GitHub</span><span class="dv"><a href="https://github.com/arinze-edeh" target="_blank" style="color:var(--cyan);text-decoration:none">arinze-edeh</a></span></div>
       </div>
     </div>
@@ -629,9 +642,9 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:1.
       <a href="https://github.com/arinze-edeh" target="_blank" class="btn-g">View GitHub Portfolio →</a>
     </div>
     <div class="cr">
-      <a href="mailto:edeharinze389@gmail.com" class="ci-item">
+      <a href="/cdn-cgi/l/email-protection#83e6e7e6ebe2f1eaedf9e6b0bbbac3e4eee2eaefade0ecee" class="ci-item">
         <div class="ci-ico">@</div>
-        <div><div class="ci-lbl">Email</div><div class="ci-val">edeharinze389@gmail.com</div></div>
+        <div><div class="ci-lbl">Email</div><div class="ci-val"><span class="__cf_email__" data-cfemail="244140414c45564d4a5e41171c1d644349454d480a474b49">[email&#160;protected]</span></div></div>
         <span class="ci-arr">→</span>
       </a>
       <a href="https://github.com/arinze-edeh" target="_blank" class="ci-item">
@@ -669,14 +682,14 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:1.
   <div class="fr">arinze-edeh.github.io</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring'),svg=document.getElementById('cur-svg'),spinG=document.getElementById('spin-group');
-let mx=0,my=0,rx=0,ry=0,started=false;
+let mx=0,my=0,rx=0,ry=0;
 dot.style.opacity='0'; ring.style.opacity='0';
 document.addEventListener('mousemove',function(e){
   mx=e.clientX; my=e.clientY;
   dot.style.left=mx+'px'; dot.style.top=my+'px';
-  if(!started){started=true;document.body.classList.add('cursor-ready');dot.style.opacity='1';ring.style.opacity='1';}
+  dot.style.opacity='1'; ring.style.opacity='1';
 });
 (function loop(){
   rx+=(mx-rx)*.09; ry+=(my-ry)*.09;
@@ -697,10 +710,4 @@ document.querySelectorAll('a,button').forEach(function(el){
 });
 
 const canvas=document.getElementById('bg-canvas'),ctx=canvas.getContext('2d');
-let W,H,nodes=[];
-function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
-resize();window.addEventListener('resize',resize);
-for(let i=0;i<55;i++)nodes.push({x:Math.random()*screen.width,y:Math.random()*screen.height,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.4+.4});
-(function draw(){
-  ctx.clearRect(0,0,W,H);
-  for(let i=0;i<nodes.length;i++
+let W,H,n
