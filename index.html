@@ -3,273 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arinze Jonathan Edeh - Cloud &amp; DevOps Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Arinze Jonathan Edeh - Cloud & DevOps Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --void: #03050a;
   --deep: #070b12;
   --panel: #0f1520;
-  --border: rgba(255,255,255,0.06);
-  --border-lit: rgba(255,255,255,0.12);
+  --panel2: #111827;
+  --border: rgba(255,255,255,0.07);
+  --border-lit: rgba(255,255,255,0.13);
   --gold: #c9a84c;
   --gold-light: #e4c97e;
   --gold-dim: rgba(201,168,76,0.15);
   --cyan: #4fc8e8;
-  --cyan-dim: rgba(79,200,232,0.1);
   --green: #3de8a0;
   --green-dim: rgba(61,232,160,0.08);
-  --text-primary: #f0ece4;
-  --text-secondary: rgba(240,236,228,0.78);
-  --text-dim: rgba(240,236,228,0.5);
+  --text: #f0ece4;
+  --text-b: rgba(240,236,228,0.82);
+  --text-c: rgba(240,236,228,0.52);
   --fd: 'Playfair Display', serif;
   --fb: 'Outfit', sans-serif;
   --fm: 'JetBrains Mono', monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{background:var(--void);color:var(--text-primary);font-family:var(--fb);font-weight:300;line-height:1.6;overflow-x:hidden;}
+body{background:var(--void);color:var(--text);font-family:var(--fb);font-weight:300;line-height:1.7;overflow-x:hidden;}
 
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:0.3;}
-
-
-to{transform:rotate(360deg);}}
-50%{opacity:0.4;}}
-#bg-canvas{position:fixed;inset:0;z-index:0;opacity:0.28;}
-main{position:relative;z-index:2;}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;background:rgba(3,5,10,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
-.nav-brand{display:flex;align-items:center;gap:1rem;}
-.nav-mono{width:36px;height:36px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:.9rem;color:var(--gold);position:relative;}
-.nav-mono::before{content:'';position:absolute;inset:3px;border:1px solid rgba(201,168,76,0.2);}
-.nav-name{font-family:var(--fm);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-secondary);}
-.nav-links{display:flex;align-items:center;gap:.15rem;}
-.nl{padding:.4rem .85rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;position:relative;transition:color .2s;}
-.nl::after{content:'';position:absolute;bottom:0;left:.85rem;right:.85rem;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .25s;}
-.nl:hover{color:var(--gold);}
-.nl:hover::after{transform:scaleX(1);}
-.nav-cta{margin-left:.75rem;padding:.45rem 1.2rem;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:var(--fm);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;transition:all .2s;position:relative;overflow:hidden;}
-.nav-cta::before{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-101%);transition:transform .25s;z-index:-1;}
-.nav-cta:hover{color:var(--void);}
-.nav-cta:hover::before{transform:translateX(0);}
-
-/* STATUS BAR */
-.sb{position:fixed;bottom:0;left:0;right:0;z-index:100;height:28px;background:rgba(3,5,10,0.92);border-top:1px solid var(--border);display:flex;align-items:center;padding:0 4rem;gap:2rem;backdrop-filter:blur(12px);}
-.si{display:flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.57rem;color:var(--text-dim);letter-spacing:.08em;}
-.sdot{width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:pdot 2s ease infinite;}
-@keyframes pdot{0%,100%{opacity:1;}50%{opacity:.4;}}
-.ssep{width:1px;height:14px;background:var(--border);}
-
-/* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px;position:relative;overflow:hidden;}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5.5rem 3rem 5.5rem 4rem;position:relative;}
-.hero::after{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;background:linear-gradient(180deg,transparent,var(--border-lit) 30%,var(--border-lit) 70%,transparent);}
-.h-eye{display:flex;align-items:center;gap:.75rem;margin-bottom:2.5rem;opacity:0;animation:rup .8s ease .2s forwards;}
-.h-eye-line{width:40px;height:1px;background:var(--gold);}
-.h-eye-text{font-family:var(--fm);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
-.h-name{font-family:var(--fd);font-size:clamp(3rem,5.2vw,5.5rem);font-weight:900;line-height:.95;letter-spacing:-.02em;margin-bottom:.5rem;opacity:0;animation:rup .9s ease .35s forwards;}
-.h-name .it{font-style:italic;color:var(--gold);}
-.h-title{display:flex;align-items:center;gap:1rem;margin-bottom:2.2rem;opacity:0;animation:rup .8s ease .5s forwards;flex-wrap:wrap;}
-.h-title-text{font-family:var(--fm);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-secondary);}
-.h-badge{padding:.2rem .6rem;background:var(--green-dim);border:1px solid rgba(61,232,160,.25);color:var(--green);font-family:var(--fm);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;}
-.h-desc{font-size:.92rem;line-height:1.85;color:var(--text-secondary);max-width:440px;margin-bottom:3rem;font-weight:300;opacity:0;animation:rup .8s ease .65s forwards;}
-.h-desc em{color:var(--gold);font-style:italic;font-family:var(--fd);}
-.h-actions{display:flex;gap:1rem;opacity:0;animation:rup .8s ease .8s forwards;}
-.btn-g{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.8rem;background:var(--gold);color:var(--void);font-family:var(--fm);font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .2s;position:relative;overflow:hidden;}
-.btn-g::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-101%);transition:transform .2s;}
-.btn-g:hover::after{transform:translateX(0);}
-.btn-g:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(201,168,76,.25);}
-.btn-gh{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.8rem;background:transparent;color:var(--text-secondary);border:1px solid var(--border-lit);font-family:var(--fm);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .2s;}
-.btn-gh:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
-
-/* HERO RIGHT */
-.hero-right{display:flex;flex-direction:column;justify-content:center;padding:5.5rem 4rem 5.5rem 3rem;gap:1.25rem;opacity:0;animation:rleft 1s ease .6s forwards;}
-.mc{background:var(--panel);border:1px solid var(--border);padding:1.6rem 1.8rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;}
-.mc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transition:transform .3s;transform-origin:bottom;}
-.mc:hover{border-color:var(--border-lit);transform:translateX(4px);}
-.mc:hover::before{transform:scaleY(1);}
-.mc-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem;}
-.mc-lbl{font-family:var(--fm);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);}
-.mc-ico{width:26px;height:26px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--gold);}
-.mc-val{font-family:var(--fd);font-size:2.8rem;font-weight:700;line-height:1;color:var(--text-primary);margin-bottom:.3rem;}
-.mc-val .u{font-size:1.1rem;color:var(--gold);}
-.mc-sub{font-family:var(--fm);font-size:.58rem;color:var(--text-dim);letter-spacing:.1em;}
-.mc-bar{height:2px;background:var(--border);margin-top:1rem;position:relative;overflow:hidden;}
-.mc-bf{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--gold),var(--gold-light));animation:bfill 2s ease 1s forwards;width:0%;}
-@keyframes bfill{to{width:var(--fill,75%);}}
-.mr{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
-.ms{background:var(--panel);border:1px solid var(--border);padding:1.1rem;transition:border-color .2s;}
-.ms:hover{border-color:var(--border-lit);}
-.ms-val{font-family:var(--fd);font-size:1.7rem;font-weight:700;color:var(--cyan);line-height:1;margin-bottom:.25rem;}
-.ms-lbl{font-family:var(--fm);font-size:.54rem;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;}
-.sp{padding:.2rem .6rem;background:rgba(255,255,255,.04);border:1px solid var(--border);font-family:var(--fm);font-size:.58rem;color:var(--text-dim);letter-spacing:.08em;transition:border-color .2s,color .2s;}
-.sp:hover{border-color:var(--gold);color:var(--gold-light);}
-
-/* SECTION */
-.sec{padding:7rem 4rem;max-width:1400px;margin:0 auto;position:relative;}
-.sec-hdr{display:grid;grid-template-columns:auto 1fr;align-items:end;gap:2rem;margin-bottom:4rem;}
-.sec-idx{font-family:var(--fd);font-size:4.5rem;font-weight:900;color:rgba(201,168,76,.07);line-height:1;letter-spacing:-.04em;user-select:none;}
-.sec-eye{font-family:var(--fm);font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:flex;align-items:center;gap:.75rem;}
-.sec-eye::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
-.sec-ttl{font-family:var(--fd);font-size:clamp(1.7rem,2.8vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.1;}
-.sec-rule{height:1px;background:linear-gradient(90deg,var(--border-lit),transparent);margin-bottom:4rem;}
-
-/* PROJECTS · FEATURED */
-.proj-feat{display:grid;grid-template-columns:1fr 1.15fr;background:var(--panel);border:1px solid var(--border);overflow:hidden;transition:border-color .4s;margin-bottom:1px;}
-.proj-feat:hover{border-color:rgba(201,168,76,.18);}
-.pfl{padding:3rem;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--border);position:relative;}
-.pfl::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);}
-.pt-row{display:flex;align-items:center;gap:.7rem;margin-bottom:1.8rem;flex-wrap:wrap;}
-.pt{padding:.22rem .7rem;font-family:var(--fm);font-size:.54rem;letter-spacing:.13em;text-transform:uppercase;}
-.pt-feat{background:var(--gold-dim);border:1px solid rgba(201,168,76,.3);color:var(--gold);}
-.pt-cloud{background:var(--cyan-dim);border:1px solid rgba(79,200,232,.2);color:var(--cyan);}
-.pt-green{background:var(--green-dim);border:1px solid rgba(61,232,160,.2);color:var(--green);}
-.pnbig{font-family:var(--fd);font-size:7rem;font-weight:900;color:rgba(255,255,255,.025);line-height:1;position:absolute;bottom:1.5rem;right:1.5rem;user-select:none;}
-.ptlg{font-family:var(--fd);font-size:1.75rem;font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:1rem;}
-.pdesc{color:var(--text-secondary);font-size:.83rem;line-height:1.8;margin-bottom:1.5rem;font-weight:300;}
-.pstack{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.5rem;}
-.plnk{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:gap .2s;}
-.plnk:hover{gap:.8rem;}
-.pfr{padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
-.ic{background:var(--panel);padding:1.8rem;display:flex;flex-direction:column;justify-content:space-between;transition:background .2s;}
-.ic:hover{background:#121a27;}
-.icv{font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--text-primary);line-height:1;margin-bottom:.4rem;}
-.icv .u{font-size:.9rem;color:var(--gold);margin-left:2px;}
-.icl{font-family:var(--fm);font-size:.54rem;color:var(--text-dim);letter-spacing:.12em;text-transform:uppercase;}
-.icb{height:1px;background:var(--border);margin-top:.8rem;position:relative;}
-.icbf{position:absolute;left:0;top:0;bottom:0;background:var(--gold);animation:bfill 1.5s ease 1.2s forwards;width:0%;}
-
-/* PROJECTS GRID */
-.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
-.pc{background:var(--panel);padding:2.2rem;position:relative;overflow:hidden;transition:background .3s;}
-.pc:hover{background:#0d1520;}
-.pc::before{content:'';position:absolute;bottom:0;left:2.2rem;right:2.2rem;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .4s;}
-.pc:hover::before{transform:scaleX(1);}
-
-/* IT PROJECTS TABLE */
-.it-table{width:100%;border-collapse:collapse;}
-.it-table th{font-family:var(--fm);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);padding:.8rem 1.2rem;border-bottom:1px solid var(--border-lit);text-align:left;font-weight:400;}
-.it-table td{padding:.9rem 1.2rem;border-bottom:1px solid var(--border);font-size:.82rem;color:var(--text-secondary);vertical-align:top;}
-.it-table tr:hover td{background:rgba(255,255,255,.015);color:var(--text-primary);}
-.it-num{font-family:var(--fm);font-size:.62rem;color:var(--gold);letter-spacing:.1em;}
-.it-name{font-weight:500;color:var(--text-primary);margin-bottom:.2rem;}
-.it-scope{font-size:.78rem;color:var(--text-secondary);}
-
-/* SKILLS */
-.skills-cols{display:grid;grid-template-columns:1fr 2px 1fr 2px 1fr;gap:0;}
-.sdiv{background:linear-gradient(180deg,transparent,var(--border-lit) 20%,var(--border-lit) 80%,transparent);}
-.sc{padding:0 2.5rem;}
-.sc:first-child{padding-left:0;}
-.sc:last-child{padding-right:0;}
-.sc-hdr{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border);}
-.sc-ico{width:34px;height:34px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;}
-.sc-ttl{font-family:var(--fm);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
-.sr{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0;border-bottom:1px solid var(--border);position:relative;overflow:hidden;transition:padding-left .3s;}
-.sr::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transition:transform .3s;}
-.sr:hover{padding-left:.9rem;}
-.sr:hover::before{transform:scaleY(1);}
-.sn{font-size:.8rem;color:var(--text-secondary);font-weight:400;transition:color .2s;}
-.sr:hover .sn{color:var(--text-primary);}
-.sl{font-family:var(--fm);font-size:.5rem;letter-spacing:.1em;color:var(--text-dim);padding:.12rem .45rem;border:1px solid var(--border);text-transform:uppercase;}
-
-/* SKILLS TABLE */
-.sk-table{width:100%;border-collapse:collapse;}
-.sk-table th{font-family:var(--fm);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);padding:.8rem 1.2rem;border-bottom:1px solid var(--border-lit);text-align:left;font-weight:400;}
-.sk-table td{padding:.85rem 1.2rem;border-bottom:1px solid var(--border);font-size:.8rem;color:var(--text-secondary);vertical-align:top;}
-.sk-table tr:hover td{background:rgba(255,255,255,.015);}
-.sk-table td:first-child{font-family:var(--fm);font-size:.62rem;color:var(--gold);letter-spacing:.08em;white-space:nowrap;font-weight:500;}
-
-/* CERTS */
-.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
-.cc{background:var(--panel);border:1px solid var(--border);padding:2.2rem;position:relative;overflow:hidden;transition:all .3s;}
-.cc::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 0% 100%,var(--gold-dim),transparent 60%);opacity:0;transition:opacity .4s;}
-.cc:hover{border-color:rgba(201,168,76,.2);transform:translateY(-4px);box-shadow:0 20px 48px rgba(0,0,0,.4);}
-.cc:hover::after{opacity:1;}
-.ce{width:52px;height:52px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.6rem;position:relative;z-index:1;}
-.cn{font-family:var(--fd);font-size:1.05rem;font-weight:700;margin-bottom:.4rem;position:relative;z-index:1;}
-.ci{font-family:var(--fm);font-size:.58rem;color:var(--text-dim);letter-spacing:.12em;text-transform:uppercase;position:relative;z-index:1;margin-bottom:1.2rem;}
-.cv{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--fm);font-size:.55rem;color:var(--green);letter-spacing:.1em;position:relative;z-index:1;}
-.cvck{width:14px;height:14px;border:1px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:.5rem;border-radius:50%;}
-
-/* ROLES */
-.roles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
-.role-card{background:var(--panel);padding:1.8rem;transition:background .2s;}
-.role-card:hover{background:#0d1520;}
-.role-title{font-family:var(--fd);font-size:1rem;font-weight:700;margin-bottom:.6rem;color:var(--text-primary);}
-.role-match{font-size:.78rem;color:var(--text-secondary);line-height:1.7;}
-
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:start;}
-.at p{font-size:.92rem;line-height:1.9;color:var(--text-secondary);font-weight:300;margin-bottom:1.3rem;}
-.at p strong{color:var(--text-primary);font-weight:500;}
-.at p em{color:var(--gold);font-style:italic;}
-.aq{border-left:2px solid var(--gold);padding-left:1.5rem;margin:2rem 0;font-family:var(--fd);font-size:1.05rem;font-style:italic;color:var(--text-secondary);line-height:1.6;}
-.pp{background:var(--panel);border:1px solid var(--border);overflow:hidden;}
-.pp-hdr{padding:1.8rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem;}
-.pav-ring{width:50px;height:50px;border:1px solid var(--gold);padding:3px;border-radius:50%;flex-shrink:0;}
-.pav{width:100%;height:100%;border-radius:50%;background:var(--deep);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1rem;color:var(--gold);}
-.pnb .name{font-family:var(--fd);font-weight:700;font-size:.9rem;margin-bottom:.2rem;}
-.pnb .role{font-family:var(--fm);font-size:.56rem;color:var(--text-dim);letter-spacing:.1em;}
-.pdr{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.8rem;border-bottom:1px solid var(--border);transition:background .2s;}
-.pdr:hover{background:rgba(255,255,255,.02);}
-.pdr:last-child{border-bottom:none;}
-.dk{font-family:var(--fm);font-size:.56rem;color:var(--text-dim);letter-spacing:.12em;text-transform:uppercase;}
-.dv{font-family:var(--fm);font-size:.65rem;color:var(--text-secondary);text-align:right;}
-.dv.g{color:var(--green);}
-.dv.go{color:var(--gold);}
-
-/* CONTACT */
-.contact-lay{display:grid;grid-template-columns:1fr 1fr;background:var(--border);gap:1px;}
-.cl{background:var(--panel);padding:3.5rem;}
-.ch{font-family:var(--fd);font-size:2.5rem;font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.2rem;}
-.ch .go{color:var(--gold);font-style:italic;}
-.cb{color:var(--text-secondary);font-size:.86rem;line-height:1.8;font-weight:300;margin-bottom:2.5rem;max-width:360px;}
-.cr{background:var(--deep);padding:3.5rem;display:flex;flex-direction:column;gap:.9rem;}
-.ci-item{display:flex;align-items:center;gap:1.1rem;padding:1.3rem;background:var(--panel);border:1px solid var(--border);text-decoration:none;color:var(--text-primary);transition:all .25s;position:relative;overflow:hidden;}
-.ci-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transition:transform .25s;}
-.ci-item:hover{border-color:rgba(201,168,76,.2);transform:translateX(4px);}
-.ci-item:hover::before{transform:scaleY(1);}
-.ci-ico{width:34px;height:34px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.65rem;color:var(--gold);flex-shrink:0;transition:border-color .2s;}
-.ci-item:hover .ci-ico{border-color:var(--gold);}
-.ci-lbl{font-family:var(--fm);font-size:.54rem;color:var(--text-dim);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem;}
-.ci-val{font-size:.78rem;color:var(--text-secondary);}
-.ci-arr{color:var(--text-dim);font-size:.7rem;transition:color .2s,transform .2s;}
-.ci-item:hover .ci-arr{color:var(--gold);transform:translateX(4px);}
-
-footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:1.8rem 4rem 3.5rem;display:flex;align-items:center;justify-content:space-between;}
-.fb{font-family:var(--fm);font-size:.56rem;color:var(--text-dim);letter-spacing:.14em;}
-.fb span{color:var(--gold);}
-.fr{font-family:var(--fm);font-size:.54rem;color:var(--text-dim);letter-spacing:.1em;}
-
-@keyframes rup{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
-@keyframes rleft{from{opacity:0;transform:translateX(32px);}to{opacity:1;transform:translateX(0);}}
-.reveal{opacity:1;transform:translateY(0);transition:opacity .7s ease,transform .7s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.rd1{transition-delay:.1s;}.rd2{transition-delay:.2s;}.rd3{transition-delay:.3s;}
-
-@media(max-width:960px){
-  nav{padding:0 1.5rem;}.nav-links{display:none;}
-  .hero{grid-template-columns:1fr;}.hero::after{display:none;}
-  .hero-left{padding:5rem 1.5rem 2rem;}.hero-right{padding:2rem 1.5rem 4rem;}
-  .sec{padding:4.5rem 1.5rem;}
-  .skills-cols{grid-template-columns:1fr;}.sdiv{display:none;}
-  .sc{padding:0;margin-bottom:2rem;}
-  .proj-feat{grid-template-columns:1fr;}.pfr{grid-template-columns:1fr 1fr;}
-  .proj-grid{grid-template-columns:1fr;}.certs-grid{grid-template-columns:1fr;}
-  .roles-grid{grid-template-columns:1fr 1fr;}.about-grid{grid-template-columns:1fr;gap:3rem;}
-  .contact-lay{grid-template-columns:1fr;}
-  footer{flex-direction:column;gap:1rem;text-align:center;padding:1.5rem 1.5rem 3.5rem;}
-  .sb{padding:0 1.5rem;gap:1rem;}
-}
-
-
-/* ── CUSTOM CURSOR ── */
+/* CUSTOM CURSOR */
 html, body, body * {
   cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><defs><filter id='g'><feGaussianBlur stdDeviation='1.5' result='b'/><feMerge><feMergeNode in='b'/><feMergeNode in='SourceGraphic'/></feMerge></filter></defs><polygon points='4,2 4,24 9,19 13,28 16,27 12,18 19,18' fill='%23c9a84c' filter='url(%23g)' stroke='%23e4c97e' stroke-width='0.8' stroke-linejoin='round'/></svg>") 4 2, auto !important;
 }
 html a, html button, html a *, html button * {
   cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><defs><filter id='g'><feGaussianBlur stdDeviation='2.5' result='b'/><feMerge><feMergeNode in='b'/><feMergeNode in='SourceGraphic'/></feMerge></filter></defs><polygon points='4,2 4,24 9,19 13,28 16,27 12,18 19,18' fill='%23e4c97e' filter='url(%23g)' stroke='%23ffffff' stroke-width='0.8' stroke-linejoin='round'/></svg>") 4 2, pointer !important;
+}
+
+/* NOISE */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:0.3;}
+#bg-canvas{position:fixed;inset:0;z-index:0;opacity:0.22;}
+main{position:relative;z-index:2;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:68px;background:rgba(3,5,10,0.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-brand{display:flex;align-items:center;gap:1rem;}
+.nav-mono{width:34px;height:34px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:.85rem;color:var(--gold);position:relative;}
+.nav-mono::before{content:'';position:absolute;inset:3px;border:1px solid rgba(201,168,76,0.2);}
+.nav-name{font-family:var(--fm);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-c);}
+.nav-links{display:flex;align-items:center;gap:.2rem;}
+.nl{padding:.4rem .8rem;font-family:var(--fm);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:var(--text-c);text-decoration:none;position:relative;transition:color .2s;}
+.nl::after{content:'';position:absolute;bottom:0;left:.8rem;right:.8rem;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .25s;}
+.nl:hover{color:var(--gold);}
+.nl:hover::after{transform:scaleX(1);}
+.nav-cta{margin-left:.75rem;padding:.45rem 1.2rem;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:var(--fm);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;transition:all .2s;position:relative;overflow:hidden;}
+.nav-cta::before{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-101%);transition:transform .25s;z-index:-1;}
+.nav-cta:hover{color:var(--void);}
+.nav-cta:hover::before{transform:translateX(0);}
+
+/* STATUS BAR */
+.sb{position:fixed;bottom:0;left:0;right:0;z-index:100;height:26px;background:rgba(3,5,10,0.92);border-top:1px solid var(--border);display:flex;align-items:center;padding:0 4rem;gap:2rem;backdrop-filter:blur(12px);}
+.si{display:flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.55rem;color:var(--text-c);letter-spacing:.08em;}
+.sdot{width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:pdot 2s ease infinite;}
+@keyframes pdot{0%,100%{opacity:1;}50%{opacity:.4;}}
+.ssep{width:1px;height:12px;background:var(--border);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 4rem 5rem;max-width:900px;margin:0 auto;}
+.h-eye{display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;opacity:0;animation:rup .8s ease .2s forwards;}
+.h-eye-line{width:36px;height:1px;background:var(--gold);}
+.h-eye-text{font-family:var(--fm);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
+.h-name{font-family:var(--fd);font-size:clamp(3rem,6vw,5.5rem);font-weight:900;line-height:.95;letter-spacing:-.02em;margin-bottom:1.5rem;opacity:0;animation:rup .9s ease .3s forwards;}
+.h-name .it{font-style:italic;color:var(--gold);}
+.h-what{font-size:clamp(1.1rem,2vw,1.35rem);font-weight:500;color:var(--text-b);line-height:1.5;margin-bottom:1.5rem;opacity:0;animation:rup .8s ease .45s forwards;max-width:700px;}
+.h-what em{color:var(--gold);font-style:normal;}
+.h-sub{font-size:1rem;color:var(--text-c);line-height:1.8;max-width:640px;margin-bottom:3rem;opacity:0;animation:rup .8s ease .6s forwards;}
+.h-badges{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:3rem;opacity:0;animation:rup .8s ease .7s forwards;}
+.hb{padding:.35rem .9rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;border:1px solid var(--border-lit);color:var(--text-c);}
+.hb-gold{border-color:rgba(201,168,76,.3);background:var(--gold-dim);color:var(--gold);}
+.hb-green{border-color:rgba(61,232,160,.25);background:var(--green-dim);color:var(--green);}
+.h-actions{display:flex;gap:1rem;opacity:0;animation:rup .8s ease .82s forwards;}
+.btn-g{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;background:var(--gold);color:var(--void);font-family:var(--fm);font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .2s;position:relative;overflow:hidden;}
+.btn-g::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-101%);transition:transform .2s;}
+.btn-g:hover::after{transform:translateX(0);}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(201,168,76,.25);}
+.btn-o{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;background:transparent;color:var(--text-b);border:1px solid var(--border-lit);font-family:var(--fm);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .2s;}
+.btn-o:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+
+/* NUMBERS STRIP */
+.numbers-strip{background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
+.ns-item{background:var(--panel);padding:2.5rem 2rem;text-align:center;transition:background .2s;}
+.ns-item:hover{background:var(--panel2);}
+.ns-val{font-family:var(--fd);font-size:3rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:.4rem;}
+.ns-label{font-size:.82rem;color:var(--text-c);line-height:1.4;}
+
+/* SECTION */
+.sec{padding:7rem 4rem;max-width:1100px;margin:0 auto;}
+.sec-hdr{margin-bottom:4rem;}
+.sec-eye{display:flex;align-items:center;gap:.75rem;font-family:var(--fm);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;}
+.sec-eye::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.sec-ttl{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:1rem;}
+.sec-sub{font-size:.95rem;color:var(--text-c);max-width:560px;line-height:1.8;}
+.sec-rule{height:1px;background:linear-gradient(90deg,var(--border-lit),transparent);margin-bottom:4rem;}
+
+/* WHAT I DO */
+.what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.wc{background:var(--panel);border:1px solid var(--border);padding:2.2rem;position:relative;overflow:hidden;transition:all .3s;}
+.wc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transition:transform .3s;transform-origin:left;}
+.wc:hover{border-color:rgba(201,168,76,.2);transform:translateY(-4px);}
+.wc:hover::before{transform:scaleX(1);}
+.wc-icon{font-size:1.8rem;margin-bottom:1.2rem;display:block;}
+.wc-title{font-family:var(--fd);font-size:1.1rem;font-weight:700;margin-bottom:.8rem;color:var(--text);}
+.wc-desc{font-size:.86rem;color:var(--text-c);line-height:1.8;}
+.wc-analogy{margin-top:1rem;padding:.8rem;background:rgba(201,168,76,.06);border-left:2px solid var(--gold);font-size:.78rem;color:var(--text-b);line-height:1.6;font-style:italic;}
+
+/* STORY */
+.story-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:start;}
+.story-text p{font-size:.95rem;line-height:1.95;color:var(--text-b);margin-bottom:1.4rem;}
+.story-text p strong{color:var(--text);font-weight:600;}
+.story-text p em{color:var(--gold);font-style:italic;}
+.story-quote{border-left:2px solid var(--gold);padding:1.2rem 1.5rem;margin:2rem 0;font-family:var(--fd);font-size:1.05rem;font-style:italic;color:var(--text-b);line-height:1.7;background:rgba(201,168,76,.04);}
+.story-panel{background:var(--panel);border:1px solid var(--border);overflow:hidden;}
+.sp-hdr{padding:1.8rem;border-bottom:1px solid var(--border);background:rgba(201,168,76,.04);}
+.sp-hdr-title{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
+.sp-hdr-name{font-family:var(--fd);font-size:1rem;font-weight:700;}
+.sp-hdr-role{font-family:var(--fm);font-size:.6rem;color:var(--text-c);letter-spacing:.1em;margin-top:.2rem;}
+.sp-row{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.8rem;border-bottom:1px solid var(--border);transition:background .2s;}
+.sp-row:hover{background:rgba(255,255,255,.02);}
+.sp-row:last-child{border-bottom:none;}
+.sp-key{font-family:var(--fm);font-size:.56rem;color:var(--text-c);letter-spacing:.12em;text-transform:uppercase;}
+.sp-val{font-family:var(--fm);font-size:.65rem;color:var(--text-b);text-align:right;}
+.sp-val.g{color:var(--green);}
+.sp-val.go{color:var(--gold);}
+
+/* PROJECTS */
+.proj-stack{display:grid;gap:1.5rem;}
+.proj-card{background:var(--panel);border:1px solid var(--border);overflow:hidden;transition:border-color .3s;}
+.proj-card:hover{border-color:rgba(201,168,76,.2);}
+.proj-card-top{padding:2.5rem;border-bottom:1px solid var(--border);position:relative;}
+.proj-card-top::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);}
+.proj-eyebrow{display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem;flex-wrap:wrap;}
+.pt{padding:.2rem .65rem;font-family:var(--fm);font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;}
+.pt-gold{background:var(--gold-dim);border:1px solid rgba(201,168,76,.3);color:var(--gold);}
+.pt-cyan{background:rgba(79,200,232,.08);border:1px solid rgba(79,200,232,.2);color:var(--cyan);}
+.pt-green{background:var(--green-dim);border:1px solid rgba(61,232,160,.2);color:var(--green);}
+.proj-title{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin-bottom:.8rem;letter-spacing:-.01em;}
+.proj-plain{font-size:.95rem;color:var(--text-b);line-height:1.85;margin-bottom:1rem;}
+.proj-analogy{padding:1rem 1.2rem;background:rgba(201,168,76,.05);border-left:2px solid var(--gold);font-size:.82rem;color:var(--text-b);line-height:1.7;margin-bottom:1.5rem;}
+.proj-analogy strong{color:var(--gold);}
+.proj-link{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:gap .2s;}
+.proj-link:hover{gap:.8rem;}
+.proj-card-bottom{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
+.proj-stat{background:var(--panel);padding:1.5rem;text-align:center;transition:background .2s;}
+.proj-stat:hover{background:var(--panel2);}
+.proj-stat-val{font-family:var(--fd);font-size:1.5rem;font-weight:700;color:var(--text);line-height:1;margin-bottom:.3rem;}
+.proj-stat-label{font-size:.7rem;color:var(--text-c);line-height:1.4;}
+
+/* IMPACT */
+.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.impact-card{background:var(--panel);padding:2.5rem;transition:background .2s;}
+.impact-card:hover{background:var(--panel2);}
+.impact-icon{font-size:1.6rem;margin-bottom:1rem;display:block;}
+.impact-title{font-family:var(--fd);font-size:1.05rem;font-weight:700;margin-bottom:.7rem;color:var(--text);}
+.impact-desc{font-size:.85rem;color:var(--text-c);line-height:1.8;}
+.impact-result{margin-top:1rem;font-family:var(--fm);font-size:.62rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;}
+
+/* CREDENTIALS */
+.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:3rem;}
+.cc{background:var(--panel);border:1px solid var(--border);padding:2.2rem;position:relative;overflow:hidden;transition:all .3s;}
+.cc::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 0% 100%,var(--gold-dim),transparent 60%);opacity:0;transition:opacity .4s;}
+.cc:hover{border-color:rgba(201,168,76,.2);transform:translateY(-4px);box-shadow:0 20px 48px rgba(0,0,0,.4);}
+.cc:hover::after{opacity:1;}
+.ce{width:48px;height:48px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.5rem;position:relative;z-index:1;}
+.cn{font-family:var(--fd);font-size:1rem;font-weight:700;margin-bottom:.3rem;position:relative;z-index:1;}
+.ci{font-family:var(--fm);font-size:.58rem;color:var(--text-c);letter-spacing:.12em;text-transform:uppercase;position:relative;z-index:1;margin-bottom:1rem;}
+.cv{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fm);font-size:.54rem;color:var(--green);letter-spacing:.1em;position:relative;z-index:1;}
+.cvck{width:13px;height:13px;border:1px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:.48rem;border-radius:50%;}
+
+/* ROLES */
+.roles-intro{font-size:.95rem;color:var(--text-c);line-height:1.8;max-width:680px;margin-bottom:3rem;}
+.roles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);}
+.role-card{background:var(--panel);padding:1.8rem 2rem;transition:background .2s;display:flex;align-items:flex-start;gap:1rem;}
+.role-card:hover{background:var(--panel2);}
+.role-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.5rem;}
+.role-title{font-family:var(--fd);font-size:.95rem;font-weight:700;margin-bottom:.3rem;}
+.role-plain{font-size:.78rem;color:var(--text-c);line-height:1.6;}
+
+/* CONTACT */
+.contact-wrap{background:var(--panel);border:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
+.contact-left{padding:4rem;border-right:1px solid var(--border);}
+.ch{font-family:var(--fd);font-size:2.2rem;font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:1.2rem;}
+.ch .go{color:var(--gold);font-style:italic;}
+.cb{color:var(--text-c);font-size:.9rem;line-height:1.85;margin-bottom:2.5rem;}
+.contact-right{padding:4rem;display:flex;flex-direction:column;gap:.8rem;justify-content:center;}
+.ci-item{display:flex;align-items:center;gap:1rem;padding:1.2rem;background:rgba(255,255,255,.02);border:1px solid var(--border);text-decoration:none;color:var(--text);transition:all .25s;position:relative;overflow:hidden;}
+.ci-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transition:transform .25s;}
+.ci-item:hover{border-color:rgba(201,168,76,.2);transform:translateX(4px);}
+.ci-item:hover::before{transform:scaleY(1);}
+.ci-ico{width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.62rem;color:var(--gold);flex-shrink:0;}
+.ci-lbl{font-family:var(--fm);font-size:.52rem;color:var(--text-c);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.15rem;}
+.ci-val{font-size:.78rem;color:var(--text-b);}
+.ci-arr{color:var(--text-c);font-size:.65rem;margin-left:auto;transition:transform .2s;}
+.ci-item:hover .ci-arr{transform:translateX(4px);color:var(--gold);}
+
+footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:1.8rem 4rem 3.2rem;display:flex;align-items:center;justify-content:space-between;}
+.fb{font-family:var(--fm);font-size:.55rem;color:var(--text-c);letter-spacing:.14em;}
+.fb span{color:var(--gold);}
+
+@keyframes rup{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:900px){
+  nav{padding:0 1.5rem;}.nav-links{display:none;}
+  .hero{padding:5.5rem 1.5rem 3rem;}
+  .sec{padding:4.5rem 1.5rem;}
+  .numbers-strip{grid-template-columns:1fr 1fr;}
+  .what-grid{grid-template-columns:1fr;}
+  .story-layout{grid-template-columns:1fr;gap:3rem;}
+  .proj-card-bottom{grid-template-columns:1fr 1fr;}
+  .impact-grid{grid-template-columns:1fr;}
+  .cred-grid{grid-template-columns:1fr;}
+  .roles-grid{grid-template-columns:1fr;}
+  .contact-wrap{grid-template-columns:1fr;}
+  .contact-left{border-right:none;border-bottom:1px solid var(--border);}
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:1.5rem 1.5rem 3.2rem;}
+  .sb{padding:0 1.5rem;gap:1rem;}
 }
 </style>
 </head>
@@ -283,11 +238,11 @@ html a, html button, html a *, html button * {
     <div class="nav-name">Arinze Jonathan Edeh</div>
   </div>
   <div class="nav-links">
+    <a href="#what-i-do" class="nl">What I Do</a>
+    <a href="#story" class="nl">My Story</a>
     <a href="#projects" class="nl">Projects</a>
-    <a href="#skills" class="nl">Skills</a>
-    <a href="#certifications" class="nl">Credentials</a>
-    <a href="#roles" class="nl">Target Roles</a>
-    <a href="#about" class="nl">About</a>
+    <a href="#impact" class="nl">Impact</a>
+    <a href="#credentials" class="nl">Credentials</a>
     <a href="#contact" class="nav-cta">Contact</a>
   </div>
 </nav>
@@ -296,36 +251,110 @@ html a, html button, html a *, html button * {
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="h-eye"><div class="h-eye-line"></div><span class="h-eye-text">Cloud & DevOps Engineer · Enugu, Nigeria</span></div>
-    <h1 class="h-name">Arinze<br><span class="it">Jonathan</span><br>Edeh</h1>
-    <div class="h-title">
-      <span class="h-title-text">Infrastructure · Automation · Cloud</span>
-      <span class="h-badge">Open to Work</span>
-    </div>
-    <p class="h-desc">Engineering full-stack infrastructure across every layer · from Windows Server & Active Directory through Linux hardening, container orchestration, and multi-stage CI/CD pipelines, up to multi-cloud architecture on AWS & Azure. <em>200+ implementations. Every system built, documented, and engineered to production standards.</em></p>
-    <div class="h-actions">
-      <a href="#projects" class="btn-g">View Projects →</a>
-      <a href="https://github.com/arinze-edeh" target="_blank" class="btn-gh">GitHub ↗</a>
-    </div>
+  <div class="h-eye"><div class="h-eye-line"></div><span class="h-eye-text">Cloud & DevOps Engineer · Enugu, Nigeria</span></div>
+  <h1 class="h-name">Arinze<br><span class="it">Jonathan</span><br>Edeh</h1>
+  <p class="h-what">I build and automate the systems that keep a company's apps, data, and digital operations <em>fast, secure, and always running</em> — even when things go wrong.</p>
+  <p class="h-sub">Think of the digital infrastructure behind a bank, a hospital, or a global company — the invisible systems that make sure nothing crashes, nothing gets hacked, and everything works around the clock. That is what I build. From a table in Enugu, Nigeria, with no mentor and limited resources, I taught myself to engineer those systems to the same standard used by the world's leading organisations.</p>
+  <div class="h-badges">
+    <span class="hb hb-green">● Open to Work</span>
+    <span class="hb hb-gold">200+ Implementations</span>
+    <span class="hb">AWS Certified</span>
+    <span class="hb">Microsoft Azure Certified</span>
+    <span class="hb">Remote · Relocation · Nigeria</span>
   </div>
-  <div class="hero-right">
-    <div class="mc">
-      <div class="mc-h"><span class="mc-lbl">Production Implementations</span><div class="mc-ico">⚡</div></div>
-      <div class="mc-val">200<span class="u">+</span></div>
-      <div class="mc-sub">IT Support · SysAdmin · DevOps · Cloud · AWS & Azure</div>
-      <div class="mc-bar"><div class="mc-bf" style="--fill:100%"></div></div>
+  <div class="h-actions">
+    <a href="#story" class="btn-g">Read My Story →</a>
+    <a href="#projects" class="btn-o">See My Work</a>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<div class="numbers-strip">
+  <div class="ns-item">
+    <div class="ns-val">200+</div>
+    <div class="ns-label">Real systems built and documented to production standards</div>
+  </div>
+  <div class="ns-item">
+    <div class="ns-val">3</div>
+    <div class="ns-label">Industry certifications from AWS, Microsoft, and Google</div>
+  </div>
+  <div class="ns-item">
+    <div class="ns-val">1,794</div>
+    <div class="ns-label">Contributions on GitHub — evidence of consistent, daily work</div>
+  </div>
+  <div class="ns-item">
+    <div class="ns-val">41</div>
+    <div class="ns-label">Day active streak — showing up every single day without fail</div>
+  </div>
+</div>
+
+<!-- WHAT I DO -->
+<section class="sec" id="what-i-do">
+  <div class="sec-hdr">
+    <div class="sec-eye">In Simple Terms</div>
+    <h2 class="sec-ttl">What I Actually Do</h2>
+    <p class="sec-sub">No jargon. Here is what my work means in the real world — and why it matters to any organisation that depends on technology.</p>
+  </div>
+  <div class="sec-rule"></div>
+  <div class="what-grid">
+
+    <div class="wc">
+      <span class="wc-icon">🏗️</span>
+      <div class="wc-title">I Build the Digital Foundation</div>
+      <p class="wc-desc">Every organisation that uses technology — a hospital, a bank, a startup — needs a foundation: servers, networks, storage, and security. I design and build that foundation in the cloud, so organisations don't need physical hardware that breaks, costs a fortune to maintain, or goes down at the worst possible moment.</p>
+      <div class="wc-analogy">Think of it like constructing the plumbing and electrical wiring in a building — invisible when it works, catastrophic when it doesn't. I make sure it always works.</div>
     </div>
-    <div class="mr">
-      <div class="ms"><div class="ms-val">40<span style="font-size:.85rem;color:var(--gold)">+</span></div><div class="ms-lbl">Cloud Services</div></div>
-      <div class="ms"><div class="ms-val">41</div><div class="ms-lbl">Day Streak</div></div>
-      <div class="ms"><div class="ms-val">1.8k</div><div class="ms-lbl">Commits/Yr</div></div>
-      <div class="ms"><div class="ms-val">12</div><div class="ms-lbl">Target Roles</div></div>
+
+    <div class="wc">
+      <span class="wc-icon">⚙️</span>
+      <div class="wc-title">I Automate Repetitive Work</div>
+      <p class="wc-desc">Many organisations waste thousands of hours on tasks that a computer could do in seconds — deploying software updates, checking system health, creating user accounts, running backups. I build systems that do these things automatically, reliably, and without human error, freeing teams to focus on work that actually requires human thinking.</p>
+      <div class="wc-analogy">Like setting up a factory assembly line instead of building each product by hand — faster, consistent, and it runs while you sleep.</div>
     </div>
-    <div class="mc">
-      <div class="mc-h"><span class="mc-lbl">Core Engineering Stack</span><div class="mc-ico">🏗</div></div>
-      <div style="display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem">
-        <span class="sp">EKS</span><span class="sp">AKS</span><span class="sp">Terraform</span><span class="sp">Ansible</span><span class="sp">Jenkins</span><span class="sp">Docker</span><span class="sp">GitHub Actions</span><span class="sp">Prometheus</span><span class="sp">Grafana</span><span class="sp">Active Directory</span><span class="sp">Linux</span><span class="sp">PowerShell</span>
+
+    <div class="wc">
+      <span class="wc-icon">🛡️</span>
+      <div class="wc-title">I Keep Systems Secure and Running</div>
+      <p class="wc-desc">A single cyberattack or system crash can cost an organisation millions and destroy trust built over years. I build the layers of security and redundancy that prevent this — controlling who has access to what, encrypting sensitive data, monitoring for threats, and ensuring that if one part of a system fails, everything else keeps running without interruption.</p>
+      <div class="wc-analogy">Think of it as installing locks, alarms, fire exits, and backup generators — all at once — for a company's entire digital operation.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="sec" id="story">
+  <div class="sec-hdr">
+    <div class="sec-eye">Personal Background</div>
+    <h2 class="sec-ttl">Where I Come From</h2>
+  </div>
+  <div class="sec-rule"></div>
+  <div class="story-layout">
+    <div class="story-text">
+      <p>I grew up in Enugu, Nigeria, in a home where a broken phone or computer was a real problem — for my parents, for neighbours, for people who depended on those devices to earn a living. I became the person who fixed things. Not because anyone trained me, but because I was curious and someone had to do it.</p>
+      <p>That curiosity grew into something I could not have imagined back then. What started with fixing screens and reinstalling software became a deep, disciplined study of the systems that power the world's largest organisations. I taught myself how cloud infrastructure works. I built lab environments at home. I earned certifications. I documented everything.</p>
+      <div class="story-quote">"I did not have a mentor. I did not have connections. I did not have the financial support that makes this journey easier for others. What I had was discipline, curiosity, and an unshakeable belief that where you start does not have to determine where you finish."</div>
+      <p>Every project in my portfolio — all 200+ of them — was built without a scholarship, without a sponsor, and largely without guidance. I built this the same way I built every skill in it: <strong>by showing up, doing the work, and refusing to stop.</strong></p>
+      <p>What drives me now is not personal achievement alone. I want to be part of something bigger than myself — to help build the kind of reliable, modern digital infrastructure that <em>Africa's businesses, institutions, and communities deserve.</em> The continent is growing fast. It needs engineers who understand both the technology and the context. I intend to be one of them.</p>
+      <p>I am actively seeking opportunities — through scholarship, remote work, or international placement — that will allow me to grow further and contribute meaningfully to something that matters.</p>
+    </div>
+    <div>
+      <div class="story-panel">
+        <div class="sp-hdr">
+          <div class="sp-hdr-title">Engineer Profile</div>
+          <div class="sp-hdr-name">Arinze Jonathan Edeh</div>
+          <div class="sp-hdr-role">Cloud & DevOps Engineer · Enugu, Nigeria</div>
+        </div>
+        <div class="sp-row"><span class="sp-key">Status</span><span class="sp-val g">● Open to Work</span></div>
+        <div class="sp-row"><span class="sp-key">Availability</span><span class="sp-val">Remote · Relocation</span></div>
+        <div class="sp-row"><span class="sp-key">Certifications</span><span class="sp-val go">AWS · AZ-900 · Google IT</span></div>
+        <div class="sp-row"><span class="sp-key">Systems Built</span><span class="sp-val">200+ implementations</span></div>
+        <div class="sp-row"><span class="sp-key">GitHub Activity</span><span class="sp-val">1,794 contributions</span></div>
+        <div class="sp-row"><span class="sp-key">Current Streak</span><span class="sp-val go">41 days active</span></div>
+        <div class="sp-row"><span class="sp-key">Cloud Platforms</span><span class="sp-val">AWS & Microsoft Azure</span></div>
+        <div class="sp-row"><span class="sp-key">Background</span><span class="sp-val">Self-taught · No sponsor</span></div>
+        <div class="sp-row"><span class="sp-key">Email</span><span class="sp-val"><a href="mailto:edeharinze389@gmail.com" style="color:var(--cyan);text-decoration:none">edeharinze389@gmail.com</a></span></div>
+        <div class="sp-row"><span class="sp-key">GitHub</span><span class="sp-val"><a href="https://github.com/arinze-edeh" target="_blank" style="color:var(--cyan);text-decoration:none">github.com/arinze-edeh</a></span></div>
       </div>
     </div>
   </div>
@@ -333,363 +362,225 @@ html a, html button, html a *, html button * {
 
 <!-- PROJECTS -->
 <section class="sec" id="projects">
-  <div class="sec-hdr reveal">
-    <div class="sec-idx">01</div>
-    <div>
-      <div class="sec-eye">Engineering Portfolio</div>
-      <h2 class="sec-ttl">200+ Production-Grade<br>Implementations</h2>
-    </div>
+  <div class="sec-hdr">
+    <div class="sec-eye">Portfolio</div>
+    <h2 class="sec-ttl">What I Have Built</h2>
+    <p class="sec-sub">Two repositories. 200+ real implementations. Each one built, tested, and documented to the standard of a working production environment.</p>
   </div>
   <div class="sec-rule"></div>
+  <div class="proj-stack">
 
-  <!-- Featured: Cloud & DevOps -->
-  <div class="proj-feat reveal">
-    <div class="pfl">
-      <div>
-        <div class="pt-row">
-          <span class="pt pt-feat">Featured</span>
-          <span class="pt pt-cloud">Multi-Cloud</span>
-          <span class="pt" style="background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.25);color:#a5b4fc">200+ Implementations</span>
+    <!-- Project 1 -->
+    <div class="proj-card">
+      <div class="proj-card-top">
+        <div class="proj-eyebrow">
+          <span class="pt pt-gold">Featured Project</span>
+          <span class="pt pt-cyan">Cloud Engineering</span>
+          <span class="pt pt-green">200+ Implementations</span>
         </div>
-        <h3 class="ptlg">Cloud Infrastructure<br>& DevOps Labs</h3>
-        <p class="pdesc">Imagine a company's entire digital operation · its servers, its data, its applications · all running automatically, securely, and without interruption, even when things go wrong. That is what this work builds. These are not practice exercises. These are real systems, built to the same standards used by the world's leading technology companies, documented thoroughly, and engineered to handle the unexpected. Every single one works.</p>
-        <div class="pstack">
-          <span class="sp">AWS</span><span class="sp">Azure</span><span class="sp">Docker</span><span class="sp">Kubernetes</span><span class="sp">Terraform</span><span class="sp">Ansible</span><span class="sp">Jenkins</span><span class="sp">Prometheus</span><span class="sp">Grafana</span><span class="sp">SELinux</span><span class="sp">KMS</span><span class="sp">Key Vault</span>
+        <h3 class="proj-title">Cloud Infrastructure & DevOps Engineering</h3>
+        <p class="proj-plain">This is the core of my portfolio. It covers the full lifecycle of how modern digital systems are built, automated, secured, and maintained — from setting up servers in the cloud, to making sure software updates are deployed automatically without any downtime, to responding when something breaks. Every scenario here mirrors what a real engineering team at a real company would face.</p>
+        <div class="proj-analogy"><strong>In plain terms:</strong> If a company's digital operations were a city, this project covers building the roads, installing the power grid, setting up the traffic system, and making sure emergency services can respond when anything goes wrong — all of it automated, all of it secure, all of it documented.</div>
+        <a href="https://github.com/arinze-edeh/cloud-infrastructure-devops-labs" target="_blank" class="proj-link">View the full project on GitHub →</a>
+      </div>
+      <div class="proj-card-bottom">
+        <div class="proj-stat"><div class="proj-stat-val">200+</div><div class="proj-stat-label">Hands-on implementations</div></div>
+        <div class="proj-stat"><div class="proj-stat-val">2</div><div class="proj-stat-label">Cloud platforms (AWS & Azure)</div></div>
+        <div class="proj-stat"><div class="proj-stat-val">40+</div><div class="proj-stat-label">Cloud services used</div></div>
+        <div class="proj-stat"><div class="proj-stat-val">100%</div><div class="proj-stat-label">Documented & production-ready</div></div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="proj-card">
+      <div class="proj-card-top">
+        <div class="proj-eyebrow">
+          <span class="pt pt-gold">IT Infrastructure</span>
+          <span class="pt pt-cyan">13 Projects</span>
         </div>
+        <h3 class="proj-title">IT Systems & Enterprise Infrastructure</h3>
+        <p class="proj-plain">Before cloud systems, there are the everyday IT foundations that keep an organisation running — employee accounts, office networks, security policies, system updates, helpdesk support. These 13 projects simulate exactly those environments: the kind of infrastructure that thousands of employees in a company depend on every single day to do their jobs.</p>
+        <div class="proj-analogy"><strong>In plain terms:</strong> This covers what happens inside a company's IT department — setting up new staff accounts, fixing crashed computers, keeping the network secure, making sure everyone's software is up to date, and having a proper system for when things go wrong. All 13 scenarios, all completed and documented.</div>
+        <a href="https://github.com/arinze-edeh/technical-projects-portfolio" target="_blank" class="proj-link">View the full project on GitHub →</a>
       </div>
-      <a href="https://github.com/arinze-edeh/cloud-infrastructure-devops-labs" target="_blank" class="plnk">View Repository →</a>
-      <div class="pnbig">01</div>
+      <div class="proj-card-bottom">
+        <div class="proj-stat"><div class="proj-stat-val">13</div><div class="proj-stat-label">Complete project implementations</div></div>
+        <div class="proj-stat"><div class="proj-stat-val">End-to-End</div><div class="proj-stat-label">Full enterprise IT simulation</div></div>
+        <div class="proj-stat"><div class="proj-stat-val">100%</div><div class="proj-stat-label">Documented with precision</div></div>
+        <div class="proj-stat"><div class="proj-stat-val">Real-World</div><div class="proj-stat-label">Production-grade scenarios</div></div>
+      </div>
     </div>
-    <div class="pfr">
-      <div class="ic"><div><div class="icv">Linux<span class="u"> Sys</span></div><div class="icl">Hardened · LAMP · SSL/TLS</div></div><div class="icb"><div class="icbf" style="--fill:100%"></div></div></div>
-      <div class="ic"><div><div class="icv">K8s<span class="u"> Ops</span></div><div class="icl">EKS · AKS · Self-Managed</div></div><div class="icb"><div class="icbf" style="--fill:100%"></div></div></div>
-      <div class="ic"><div><div class="icv">IaC<span class="u"> Ready</span></div><div class="icl">Terraform · Ansible · ARM</div></div><div class="icb"><div class="icbf" style="--fill:95%"></div></div></div>
-      <div class="ic"><div><div class="icv">CI/CD<span class="u"> Full</span></div><div class="icl">Jenkins · Multistage · RBAC</div></div><div class="icb"><div class="icbf" style="--fill:100%"></div></div></div>
-    </div>
-  </div>
 
-  <!-- Cloud DevOps Breakdown -->
-  <div style="background:var(--panel);border:1px solid var(--border);border-top:none;margin-bottom:2rem;" class="reveal rd1">
-    <div style="padding:1.5rem 2rem;border-bottom:1px solid var(--border);background:rgba(201,168,76,0.04);">
-      <p style="font-family:var(--fb);font-size:.88rem;color:var(--text-secondary);line-height:1.8;font-weight:300;">
-        <span style="color:var(--gold);font-family:var(--fm);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:.5rem;">In plain English</span>
-        The table below shows the specific areas covered across 200+ implementations. Think of each row as a department in a large IT organisation · from keeping servers secure, to automating repetitive tasks, to making sure systems never go offline. Arinze has built real, working solutions in every single one of these areas.
-      </p>
-    </div>
-    <table class="it-table">
-      <thead><tr><th>Area</th><th>What Was Built</th></tr></thead>
-      <tbody>
-        <tr><td class="it-num">Linux</td><td><div class="it-name">Linux Systems Engineering</div><div class="it-scope">Hardened environments with SELinux, IPtables, SSH enforcement, LAMP, Nginx load balancing, SSL/TLS, PHP-FPM, PostgreSQL, and cron automation</div></td></tr>
-        <tr><td class="it-num">Docker</td><td><div class="it-name">Container Platform Engineering</div><div class="it-scope">Optimised Dockerfiles, multi-service Compose stacks, custom bridge networks, runtime debugging, and full application containerisation</div></td></tr>
-        <tr><td class="it-num">Kubernetes</td><td><div class="it-name">Kubernetes Cluster Operations</div><div class="it-scope">Self-managed, EKS, and AKS cluster admin including rolling updates, rollbacks, PersistentVolumes, sidecars, init containers, Secrets, and incident resolution</div></td></tr>
-        <tr><td class="it-num">Jenkins</td><td><div class="it-name">Jenkins CI/CD Architecture</div><div class="it-scope">Multistage declarative pipelines with RBAC, distributed agent nodes, conditional logic, parameterised builds, chained deployments, and automated operational jobs</div></td></tr>
-        <tr><td class="it-num">Ansible</td><td><div class="it-name">Ansible Configuration Management</div><div class="it-scope">Idempotent playbooks across 10+ modules, Jinja2 templating, ACL enforcement, service lifecycle management, and multi-server inventory segmentation</div></td></tr>
-        <tr><td class="it-num">Terraform</td><td><div class="it-name">Terraform Infrastructure as Code</div><div class="it-scope">AWS VPC, subnets, EC2, security groups, IAM policies, DynamoDB access, and CloudWatch alarms provisioned through version-controlled Terraform configurations</div></td></tr>
-        <tr><td class="it-num">AWS</td><td><div class="it-name">AWS Architecture</div><div class="it-scope">EC2, VPC, ALB, NAT, Peering, IAM, S3, RDS, DynamoDB, Lambda, ECS, EKS, Auto Scaling, SQS, SNS, CloudFormation, KMS, ECR · 20+ services</div></td></tr>
-        <tr><td class="it-num">Azure</td><td><div class="it-name">Azure Architecture</div><div class="it-scope">VMs, VNets, NSGs, Managed Disks, Blob Storage, ACR, AKS, Azure SQL, Event Hub, Application Gateway, Key Vault, ARM Templates, VNet Peering · 20+ services</div></td></tr>
-        <tr><td class="it-num">Incident</td><td><div class="it-name">Incident Response Engineering</div><div class="it-scope">Diagnosed and resolved structured fault scenarios across Kubernetes VolumeMounts, Dockerfile failures, MariaDB outages, Linux process incidents, EC2 connectivity, and Azure VNet misconfigurations</div></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- IT Projects -->
-  <div class="proj-grid reveal rd2">
-    <div class="pc">
-      <div class="pt-row" style="margin-bottom:1.4rem">
-        <span class="pt pt-green">SysAdmin</span>
-        <span class="pt" style="background:rgba(79,200,232,.08);border:1px solid rgba(79,200,232,.2);color:var(--cyan)">13 Projects</span>
-      </div>
-      <h3 class="ptlg" style="font-size:1.4rem;margin-bottom:.9rem">IT Systems & Infrastructure Engineering</h3>
-      <p class="pdesc" style="font-size:.81rem">Before the cloud, there were the foundations · the office networks, the user accounts, the systems that keep an organisation's day-to-day operations running. These 13 projects cover exactly that: setting up and securing the kind of IT infrastructure that thousands of employees in a real company depend on every single day.</p>
-      <div class="pstack" style="margin-bottom:1.5rem">
-        <span class="sp">Windows Server</span><span class="sp">Active Directory</span><span class="sp">Group Policy</span><span class="sp">PowerShell</span><span class="sp">GLPI</span><span class="sp">Zabbix</span><span class="sp">PRTG</span><span class="sp">Wazuh</span><span class="sp">WSUS</span><span class="sp">VirtualBox</span>
-      </div>
-      <a href="https://github.com/arinze-edeh/technical-projects-portfolio" target="_blank" class="plnk">View Repository →</a>
-    </div>
-    <div class="pc">
-      <div class="pt-row" style="margin-bottom:1.4rem">
-        <span class="pt pt-feat">Documented</span>
-      </div>
-      <h3 class="ptlg" style="font-size:1.4rem;margin-bottom:.9rem">Engineer Profile & Resume</h3>
-      <p class="pdesc" style="font-size:.81rem">Every project is documented here · not just built, but explained, organised, and made readable. In engineering, documentation is the difference between work that lasts and work that gets forgotten. This profile reflects 1,794 contributions and a 41-day active streak · evidence of someone who shows up consistently, not just when it is convenient.</p>
-      <div class="pstack" style="margin-bottom:1.5rem">
-        <span class="sp">Markdown</span><span class="sp">GitHub Actions</span><span class="sp">README Automation</span><span class="sp">Stats Badges</span>
-      </div>
-      <a href="https://github.com/arinze-edeh" target="_blank" class="plnk">View Profile →</a>
-    </div>
-  </div>
-
-  <!-- IT Projects Table -->
-  <div style="background:var(--panel);border:1px solid var(--border);margin-top:1px;" class="reveal rd3">
-    <div style="padding:1.5rem 2rem;border-bottom:1px solid var(--border);background:rgba(201,168,76,0.04);">
-      <p style="font-family:var(--fb);font-size:.88rem;color:var(--text-secondary);line-height:1.8;font-weight:300;">
-        <span style="color:var(--gold);font-family:var(--fm);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:.5rem;">In plain English</span>
-        Each of these 13 projects simulates a real challenge that an IT team at a company would face · from setting up employee accounts and office networks, to recovering a crashed system, to keeping software up to date across hundreds of computers. Arinze completed all 13, each documented to a professional standard.
-      </p>
-    </div>
-    <table class="it-table">
-      <thead><tr><th>#</th><th>Project</th><th>Scope</th></tr></thead>
-      <tbody>
-        <tr><td class="it-num">01</td><td class="it-name">Hypervisor & Virtual Environment Setup</td><td class="it-scope">Provisioned a multi-VM virtualised environment using VirtualBox as the foundation for all subsequent infrastructure work</td></tr>
-        <tr><td class="it-num">02</td><td class="it-name">Active Directory Domain Services I</td><td class="it-scope">Configured a Windows Server domain controller with a structured OU hierarchy, user accounts, and domain join operations</td></tr>
-        <tr><td class="it-num">03</td><td class="it-name">Active Directory Domain Services II</td><td class="it-scope">Implemented Group Policy Objects, NTFS permission delegation, login scripts, and domain-wide security policy enforcement</td></tr>
-        <tr><td class="it-num">04</td><td class="it-name">Enterprise Networking Configuration</td><td class="it-scope">Configured DNS, DHCP, IP addressing, subnetting, and performed fault isolation with packet-level traffic analysis</td></tr>
-        <tr><td class="it-num">05</td><td class="it-name">Windows OS Fault Diagnosis & Recovery</td><td class="it-scope">Diagnosed and resolved BSOD incidents, startup failures, printer faults, and malware-related system degradation</td></tr>
-        <tr><td class="it-num">06</td><td class="it-name">IT Service Management with GLPI</td><td class="it-scope">Simulated a full enterprise support workflow covering ticket intake, assignment, escalation, SLA compliance, and resolution</td></tr>
-        <tr><td class="it-num">07</td><td class="it-name">Linux Server Administration</td><td class="it-scope">Deployed Ubuntu Server with SSH hardening, Apache and Nginx configuration, and cron-based task scheduling</td></tr>
-        <tr><td class="it-num">08</td><td class="it-name">PowerShell Infrastructure Automation</td><td class="it-scope">Scripted Active Directory user provisioning, group membership management, and permission assignment at scale</td></tr>
-        <tr><td class="it-num">09</td><td class="it-name">Azure Cloud Infrastructure Fundamentals</td><td class="it-scope">Provisioned Azure VMs, storage accounts, Virtual Networks, and role-based access control configurations</td></tr>
-        <tr><td class="it-num">10</td><td class="it-name">AWS Cloud Infrastructure Fundamentals</td><td class="it-scope">Deployed EC2 instances, S3 buckets, security groups, and IAM configurations aligned with least-privilege principles</td></tr>
-        <tr><td class="it-num">11</td><td class="it-name">Infrastructure Monitoring & Alerting</td><td class="it-scope">Deployed Zabbix, PRTG, and Wazuh for system monitoring, threshold-based alerting, and centralised log analysis</td></tr>
-        <tr><td class="it-num">12</td><td class="it-name">Backup, Recovery & Business Continuity</td><td class="it-scope">Designed backup strategies, managed restore points, and validated file-level disaster recovery procedures</td></tr>
-        <tr><td class="it-num">13</td><td class="it-name">Patch Management & Update Operations</td><td class="it-scope">Simulated an enterprise patching cycle using WSUS concepts including staging, deployment, validation, and rollback</td></tr>
-      </tbody>
-    </table>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section class="sec" id="skills">
-  <div class="sec-hdr reveal">
-    <div class="sec-idx">02</div>
-    <div><div class="sec-eye">Technical Expertise</div><h2 class="sec-ttl">Full-Stack Infrastructure<br>Skill Set</h2></div>
+<!-- IMPACT -->
+<section class="sec" id="impact">
+  <div class="sec-hdr">
+    <div class="sec-eye">Why It Matters</div>
+    <h2 class="sec-ttl">What This Work Means<br>in the Real World</h2>
+    <p class="sec-sub">Technical skills are only valuable if they solve real problems. Here is what the work in this portfolio actually means for organisations and the people they serve.</p>
   </div>
   <div class="sec-rule"></div>
-
-  <!-- Skills table -->
-  <div style="background:var(--panel);border:1px solid var(--border);margin-bottom:3rem;" class="reveal">
-    <table class="sk-table">
-      <thead><tr><th>Domain</th><th>Technologies & Tools</th></tr></thead>
-      <tbody>
-        <tr><td>Operating Systems</td><td>Linux (RHEL, Ubuntu), Windows Server, Windows Client</td></tr>
-        <tr><td>Cloud Platforms</td><td>AWS (20+ services), Microsoft Azure (20+ services)</td></tr>
-        <tr><td>Containerisation</td><td>Docker, Docker Compose, Dockerfile authoring, container networking</td></tr>
-        <tr><td>Orchestration</td><td>Kubernetes (self-managed, EKS, AKS), PersistentVolumes, RBAC, Secrets</td></tr>
-        <tr><td>CI/CD & Automation</td><td>Jenkins (multistage pipelines, distributed builds), Git, GitHub, PowerShell, Bash</td></tr>
-        <tr><td>Infrastructure as Code</td><td>Terraform, Ansible (10+ modules), ARM Templates, AWS CloudFormation</td></tr>
-        <tr><td>Networking</td><td>TCP/IP, DNS, DHCP, Subnetting, VPC, VNet, NAT, Load Balancing, Wireshark</td></tr>
-        <tr><td>Security</td><td>IAM, KMS, Azure Key Vault, SELinux, IPtables, NSG, SSL/TLS, SSH hardening, RBAC</td></tr>
-        <tr><td>Monitoring</td><td>Zabbix, PRTG, Wazuh, Grafana, AWS CloudWatch</td></tr>
-        <tr><td>Systems Administration</td><td>Active Directory, Group Policy, WSUS, Backup & Recovery, GLPI</td></tr>
-        <tr><td>Web & App Servers</td><td>Nginx, Apache, Tomcat, PHP-FPM</td></tr>
-        <tr><td>Databases</td><td>PostgreSQL, MariaDB, MySQL, Amazon RDS, DynamoDB, Azure SQL</td></tr>
-        <tr><td>Virtualisation</td><td>VirtualBox, Azure VMs, AWS EC2</td></tr>
-        <tr><td>Remote Administration</td><td>RDP, VNC, SSH</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Skill columns -->
-  <div class="skills-cols reveal rd1">
-    <div class="sc">
-      <div class="sc-hdr"><div class="sc-ico">☁</div><span class="sc-ttl">Cloud & IaC</span></div>
-      <div>
-        <div class="sr"><span class="sn">AWS (20+ services)</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">Microsoft Azure (20+ services)</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">Terraform</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">Ansible (10+ modules)</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">ARM Templates</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">AWS CloudFormation</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">Multi-Cloud Architecture</span><span class="sl">Hands-On</span></div>
-      </div>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <span class="impact-icon">⏱️</span>
+      <div class="impact-title">Hours of Work Saved Every Week</div>
+      <p class="impact-desc">Tasks that used to require a person to manually log in, run commands, check systems, and repeat — can now run automatically on a schedule without any human involvement. What once took hours now takes seconds, reliably, every time.</p>
+      <div class="impact-result">Outcome: Teams focus on what matters</div>
     </div>
-    <div class="sdiv"></div>
-    <div class="sc">
-      <div class="sc-hdr"><div class="sc-ico">⚙</div><span class="sc-ttl">DevOps & Containers</span></div>
-      <div>
-        <div class="sr"><span class="sn">Jenkins Multistage Pipelines</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">Docker & Docker Compose</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">Kubernetes (EKS, AKS, Self)</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">GitHub Actions</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">Bash & PowerShell</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">Prometheus & Grafana</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">Jinja2 Templating</span><span class="sl">Hands-On</span></div>
-      </div>
+    <div class="impact-card">
+      <span class="impact-icon">🔒</span>
+      <div class="impact-title">Organisations Protected from Attack</div>
+      <p class="impact-desc">Cyberattacks cost businesses and institutions billions every year — and the damage is not just financial. The security layers built in this portfolio control access, encrypt data, monitor for threats, and stop attackers before they cause harm.</p>
+      <div class="impact-result">Outcome: Data stays safe, trust is preserved</div>
     </div>
-    <div class="sdiv"></div>
-    <div class="sc">
-      <div class="sc-hdr"><div class="sc-ico">🖥</div><span class="sc-ttl">Systems & Security</span></div>
-      <div>
-        <div class="sr"><span class="sn">Linux Administration (RHEL/Ubuntu)</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">Windows Server & AD</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">Group Policy & WSUS</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">IAM, KMS, Key Vault</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">SELinux & IPtables</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">Zabbix, PRTG, Wazuh</span><span class="sl">Hands-On</span></div>
-        <div class="sr"><span class="sn">DNS, DHCP, TCP/IP, VPC</span><span class="sl">Hands-On</span></div>
-      </div>
+    <div class="impact-card">
+      <span class="impact-icon">🌐</span>
+      <div class="impact-title">Systems That Never Go Down</div>
+      <p class="impact-desc">When a hospital's system crashes, patient care suffers. When a bank's platform goes offline, people can't access their money. The infrastructure patterns in this portfolio ensure that even if one part fails, the rest keeps running — automatically and invisibly.</p>
+      <div class="impact-result">Outcome: Zero downtime for critical services</div>
+    </div>
+    <div class="impact-card">
+      <span class="impact-icon">🚀</span>
+      <div class="impact-title">Faster Software Delivery</div>
+      <p class="impact-desc">In the past, updating software meant weeks of careful manual testing, staging, and deployment. Today, with the automation systems built in this portfolio, new features can be tested, approved, and deployed to thousands of users in minutes — safely, with instant rollback if anything goes wrong.</p>
+      <div class="impact-result">Outcome: Better products reach users faster</div>
+    </div>
+    <div class="impact-card">
+      <span class="impact-icon">💰</span>
+      <div class="impact-title">Significant Cost Reduction</div>
+      <p class="impact-desc">Physical servers are expensive to buy, power, cool, and maintain. Cloud infrastructure, when designed correctly, scales up when demand is high and scales back down when it is not — so organisations only pay for exactly what they use, when they use it.</p>
+      <div class="impact-result">Outcome: Lower IT costs, better margins</div>
+    </div>
+    <div class="impact-card">
+      <span class="impact-icon">🌍</span>
+      <div class="impact-title">A Model for African Engineers</div>
+      <p class="impact-desc">Every implementation in this portfolio was built in Nigeria, without institutional support, without a sponsor, and without the advantages that engineers in wealthier countries take for granted. This work is proof that world-class engineering talent exists on this continent — it just needs to be found and supported.</p>
+      <div class="impact-result">Outcome: Next generation has proof it's possible</div>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section class="sec" id="certifications">
-  <div class="sec-hdr reveal">
-    <div class="sec-idx">03</div>
-    <div><div class="sec-eye">Credentials</div><h2 class="sec-ttl">Verified Certifications</h2></div>
+<!-- CREDENTIALS -->
+<section class="sec" id="credentials">
+  <div class="sec-hdr">
+    <div class="sec-eye">Verified Qualifications</div>
+    <h2 class="sec-ttl">Certifications & Recognition</h2>
+    <p class="sec-sub">These are internationally recognised credentials, earned through rigorous examination, that verify expertise in the world's leading cloud platforms.</p>
   </div>
   <div class="sec-rule"></div>
-  <div class="certs-grid">
-    <div class="cc reveal rd1">
+  <div class="cred-grid">
+    <div class="cc">
       <div class="ce" style="background:rgba(255,153,0,.06);border-color:rgba(255,153,0,.2)">☁️</div>
       <div class="cn">AWS Cloud Practitioner</div>
       <div class="ci">Amazon Web Services</div>
-      <div class="cv"><div class="cvck">✓</div>Verified Credential</div>
+      <p style="font-size:.8rem;color:var(--text-c);line-height:1.7;margin-bottom:1rem;">Amazon Web Services is the world's largest cloud platform, used by NASA, Netflix, Airbnb, and millions of organisations globally. This certification verifies foundational expertise in building on that platform.</p>
+      <div class="cv"><div class="cvck">✓</div>Internationally Verified</div>
     </div>
-    <div class="cc reveal rd2">
+    <div class="cc">
       <div class="ce" style="background:rgba(0,120,212,.06);border-color:rgba(0,120,212,.2)">🪟</div>
       <div class="cn">Microsoft AZ-900</div>
-      <div class="ci">Azure Fundamentals</div>
-      <div class="cv"><div class="cvck">✓</div>Verified Credential</div>
+      <div class="ci">Microsoft Azure Fundamentals</div>
+      <p style="font-size:.8rem;color:var(--text-c);line-height:1.7;margin-bottom:1rem;">Microsoft Azure powers the digital operations of hundreds of thousands of businesses worldwide, including many government institutions and hospitals. This certification verifies verified knowledge of that platform.</p>
+      <div class="cv"><div class="cvck">✓</div>Internationally Verified</div>
     </div>
-    <div class="cc reveal rd3">
+    <div class="cc">
       <div class="ce" style="background:rgba(66,133,244,.06);border-color:rgba(66,133,244,.2)">🔵</div>
       <div class="cn">Google IT Support Professional</div>
       <div class="ci">Google · Coursera</div>
-      <div class="cv"><div class="cvck">✓</div>Verified Credential</div>
+      <p style="font-size:.8rem;color:var(--text-c);line-height:1.7;margin-bottom:1rem;">A professional certificate developed by Google, covering the full scope of IT support — from troubleshooting hardware and software to networking, security, and system administration.</p>
+      <div class="cv"><div class="cvck">✓</div>Internationally Verified</div>
     </div>
   </div>
 </section>
 
-<!-- TARGET ROLES -->
+<!-- ROLES -->
 <section class="sec" id="roles">
-  <div class="sec-hdr reveal">
-    <div class="sec-idx">04</div>
-    <div><div class="sec-eye">Career Targets</div><h2 class="sec-ttl">Currently Targeting<br>12 Role Categories</h2></div>
+  <div class="sec-hdr">
+    <div class="sec-eye">Career Targets</div>
+    <h2 class="sec-ttl">Roles I Am Ready For</h2>
   </div>
   <div class="sec-rule"></div>
-  <div class="roles-grid reveal">
-    <div class="role-card"><div class="role-title">IT Support Specialist</div><div class="role-match">Helpdesk workflows, fault diagnosis, Windows OS, Active Directory, end-user support</div></div>
-    <div class="role-card"><div class="role-title">Helpdesk Engineer</div><div class="role-match">Ticket management, GLPI, SLA compliance, escalation, remote administration</div></div>
-    <div class="role-card"><div class="role-title">IT Systems Administrator</div><div class="role-match">Active Directory, Windows Server, Linux, networking, backup, patch management</div></div>
-    <div class="role-card"><div class="role-title">Cloud Support Engineer</div><div class="role-match">AWS and Azure fundamentals, monitoring, connectivity troubleshooting</div></div>
-    <div class="role-card"><div class="role-title">DevOps Engineer</div><div class="role-match">Linux, Git, Docker, Kubernetes, Jenkins, Ansible, Terraform</div></div>
-    <div class="role-card"><div class="role-title">Cloud Infrastructure Engineer</div><div class="role-match">AWS and Azure architecture, dual-cloud networking, IAM, compute, storage</div></div>
-    <div class="role-card"><div class="role-title">Site Reliability Engineer</div><div class="role-match">Kubernetes operations, incident response, observability, rollback procedures</div></div>
-    <div class="role-card"><div class="role-title">Platform Engineer</div><div class="role-match">Cluster administration, CI/CD design, IaC, internal tooling</div></div>
-    <div class="role-card"><div class="role-title">Infrastructure Engineer</div><div class="role-match">Multi-cloud networking, IaC, compute provisioning, storage architecture</div></div>
-    <div class="role-card"><div class="role-title">Automation Engineer</div><div class="role-match">Ansible, Terraform, PowerShell, Bash, Jinja2, CloudFormation, ARM Templates</div></div>
-    <div class="role-card"><div class="role-title">CI/CD Engineer</div><div class="role-match">Jenkins pipelines, distributed builds, parameterised deployments, RBAC</div></div>
-    <div class="role-card"><div class="role-title">Kubernetes Engineer</div><div class="role-match">EKS, AKS, self-managed clusters, PersistentVolumes, sidecar & init containers</div></div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="sec" id="about">
-  <div class="sec-hdr reveal">
-    <div class="sec-idx">05</div>
-    <div><div class="sec-eye">Background</div><h2 class="sec-ttl">The Engineer<br>Behind the Work</h2></div>
-  </div>
-  <div class="sec-rule"></div>
-  <div class="about-grid">
-    <div class="at reveal">
-      <p>I'm <strong>Arinze Jonathan Edeh</strong>, a Cloud & DevOps Engineer based in Enugu, Nigeria, with a background spanning the full technology stack · from first-line IT support through enterprise systems administration to multi-cloud infrastructure engineering.</p>
-      <p>My work covers the complete infrastructure lifecycle: helpdesk support workflows and Windows Server administration through Active Directory, Linux hardening, container orchestration, multi-stage CI/CD pipeline design, infrastructure-as-code provisioning, and multi-cloud service integration.</p>
-      <blockquote class="aq">"Every implementation reflects real-world operational patterns, documented with precision and engineered to production standards."</blockquote>
-      <p>With <strong>200+ structured implementations</strong> across AWS and Azure, I bring end-to-end infrastructure delivery, <em>security-first engineering</em> across IAM, network controls, OS hardening, and secrets management, and deep automation capability spanning Ansible, Terraform, Jenkins, PowerShell, and Bash.</p>
-      <p>I am <strong>open to remote work, relocation, and international opportunities</strong> across IT Support, SysAdmin, DevOps, Cloud Infrastructure, and Platform Engineering roles.</p>
-    </div>
-    <div class="pp reveal rd1">
-      <div class="pp-hdr">
-        <div class="pav-ring"><div class="pav">AJE</div></div>
-        <div class="pnb"><div class="name">Arinze Jonathan Edeh</div><div class="role">Cloud & DevOps Engineer</div></div>
-      </div>
-      <div>
-        <div class="pdr"><span class="dk">Location</span><span class="dv">Enugu, Nigeria 🇳🇬</span></div>
-        <div class="pdr"><span class="dk">Status</span><span class="dv g">● Open to Work</span></div>
-        <div class="pdr"><span class="dk">Availability</span><span class="dv">Remote · Relocation</span></div>
-        <div class="pdr"><span class="dk">Cloud Platforms</span><span class="dv go">AWS · Azure</span></div>
-        <div class="pdr"><span class="dk">Implementations</span><span class="dv">200+ production</span></div>
-        <div class="pdr"><span class="dk">Contributions</span><span class="dv">1,794 total</span></div>
-        <div class="pdr"><span class="dk">Active Streak</span><span class="dv go">41 days</span></div>
-        <div class="pdr"><span class="dk">Certifications</span><span class="dv">AWS CCP · AZ-900 · Google IT</span></div>
-        <div class="pdr"><span class="dk">Email</span><span class="dv"><a href="/cdn-cgi/l/email-protection#9cf9f8f9f4fdeef5f2e6f9afa4a5dcfbf1fdf5f0b2fff3f1" style="color:var(--cyan);text-decoration:none"><span class="__cf_email__" data-cfemail="076263626f66756e697d62343f3e47606a666e6b2964686a">[email&#160;protected]</span></a></span></div>
-        <div class="pdr"><span class="dk">GitHub</span><span class="dv"><a href="https://github.com/arinze-edeh" target="_blank" style="color:var(--cyan);text-decoration:none">arinze-edeh</a></span></div>
-      </div>
-    </div>
+  <p class="roles-intro">The portfolio and skills described on this page qualify for a wide range of roles — from entry-level IT support through to senior cloud and infrastructure engineering positions. Here is what each role means in plain terms.</p>
+  <div class="roles-grid">
+    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">IT Support Specialist</div><div class="role-plain">The person employees call when their computer, network, or software has a problem. I have simulated every major support scenario an enterprise IT team faces.</div></div></div>
+    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">Systems Administrator</div><div class="role-plain">Manages the servers, user accounts, and internal systems that keep an organisation running day-to-day. A foundational IT role at any company with technology infrastructure.</div></div></div>
+    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">Cloud Engineer</div><div class="role-plain">Designs and manages a company's systems in the cloud — so they don't need expensive physical hardware and can scale instantly as the business grows.</div></div></div>
+    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">DevOps Engineer</div><div class="role-plain">Bridges the gap between building software and running it — automating the process of testing, deploying, and monitoring applications so teams can move faster and more safely.</div></div></div>
+    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">Infrastructure Engineer</div><div class="role-plain">Designs the underlying systems — networks, servers, storage — that everything else in a company depends on. The foundations that must never fail.</div></div></div>
+    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">Site Reliability Engineer</div><div class="role-plain">Ensures that systems stay online, performant, and resilient. When something breaks, this is the person who diagnoses it, fixes it, and makes sure it never breaks the same way again.</div></div></div>
+    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">Automation Engineer</div><div class="role-plain">Eliminates repetitive manual work by writing scripts and building systems that do it automatically — saving organisations time, money, and human error.</div></div></div>
+    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">Platform Engineer</div><div class="role-plain">Builds the internal tools and infrastructure that other engineers use to do their work — the foundation that makes an entire engineering organisation more productive.</div></div></div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="sec" id="contact">
-  <div class="sec-hdr reveal">
-    <div class="sec-idx">06</div>
-    <div><div class="sec-eye">Get in Touch</div><h2 class="sec-ttl">Open to Opportunities</h2></div>
+  <div class="sec-hdr">
+    <div class="sec-eye">Get in Touch</div>
+    <h2 class="sec-ttl">Let's Connect</h2>
   </div>
   <div class="sec-rule"></div>
-  <div class="contact-lay reveal">
-    <div class="cl">
+  <div class="contact-wrap">
+    <div class="contact-left">
       <h2 class="ch">Let's Build<br>Something <span class="go">Remarkable</span></h2>
-      <p class="cb">I started fixing broken computers on a table in Enugu. Today I build cloud infrastructure to the same standards used by global enterprises. If you are looking for someone with the technical depth to contribute from day one and the hunger to keep growing · I would love to connect. This is not just a career for me. It is a mission.</p>
-      <a href="https://github.com/arinze-edeh" target="_blank" class="btn-g">View GitHub Portfolio →</a>
+      <p class="cb">I started fixing broken computers on a table in Enugu. Today I build cloud infrastructure to the same standards used by global enterprises — self-taught, self-funded, and self-driven. If you are looking for someone with the technical depth to contribute from day one, the hunger to keep growing, and a genuine desire to give back — I would love to hear from you. This is not just a career for me. It is a mission.</p>
+      <a href="mailto:edeharinze389@gmail.com" class="btn-g">Send Me an Email →</a>
     </div>
-    <div class="cr">
-      <a href="/cdn-cgi/l/email-protection#83e6e7e6ebe2f1eaedf9e6b0bbbac3e4eee2eaefade0ecee" class="ci-item">
+    <div class="contact-right">
+      <a href="mailto:edeharinze389@gmail.com" class="ci-item">
         <div class="ci-ico">@</div>
-        <div><div class="ci-lbl">Email</div><div class="ci-val"><span class="__cf_email__" data-cfemail="244140414c45564d4a5e41171c1d644349454d480a474b49">[email&#160;protected]</span></div></div>
+        <div><div class="ci-lbl">Email</div><div class="ci-val">edeharinze389@gmail.com</div></div>
         <span class="ci-arr">→</span>
       </a>
       <a href="https://github.com/arinze-edeh" target="_blank" class="ci-item">
         <div class="ci-ico">GH</div>
-        <div><div class="ci-lbl">Code & Projects</div><div class="ci-val">github.com/arinze-edeh</div></div>
+        <div><div class="ci-lbl">GitHub — All Projects</div><div class="ci-val">github.com/arinze-edeh</div></div>
         <span class="ci-arr">→</span>
       </a>
       <a href="https://linkedin.com/in/arinze-edeh" target="_blank" class="ci-item">
         <div class="ci-ico">in</div>
-        <div><div class="ci-lbl">Professional Network</div><div class="ci-val">linkedin.com/in/arinze-edeh</div></div>
+        <div><div class="ci-lbl">LinkedIn</div><div class="ci-val">linkedin.com/in/arinze-edeh</div></div>
         <span class="ci-arr">→</span>
       </a>
-      <div class="ci-item" >
+      <div class="ci-item">
         <div class="ci-ico">📍</div>
-        <div><div class="ci-lbl">Location & Availability</div><div class="ci-val">Enugu, Nigeria · Remote · Open to Relocation</div></div>
+        <div><div class="ci-lbl">Location & Availability</div><div class="ci-val">Enugu, Nigeria · Open to Remote & Relocation</div></div>
       </div>
     </div>
   </div>
 </section>
+
 </main>
 
-<!-- STATUS BAR -->
 <div class="sb">
-  <div class="si"><div class="sdot"></div>Available for Opportunities</div>
+  <div class="si"><div class="sdot"></div>Open to Opportunities</div>
   <div class="ssep"></div>
   <div class="si">Enugu, Nigeria · UTC+1</div>
   <div class="ssep"></div>
-  <div class="si">200+ Implementations · AWS & Azure · 40+ Services</div>
+  <div class="si">200+ Implementations · AWS & Azure Certified</div>
   <div class="ssep"></div>
-  <div class="si">41-Day Streak · 1,794 Contributions</div>
+  <div class="si">Self-Taught · No Sponsor · Built From Scratch</div>
 </div>
 
 <footer>
-  <div class="fb">© 2026 <span>Arinze Jonathan Edeh</span> · Cloud & DevOps Engineer · Hosted on GitHub Pages</div>
-  <div class="fr">arinze-edeh.github.io</div>
+  <div class="fb">© 2026 <span>Arinze Jonathan Edeh</span> · Cloud & DevOps Engineer · arinze-edeh.github.io</div>
+  <div class="fb">Built with discipline. Hosted on GitHub Pages.</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring'),svg=document.getElementById('cur-svg'),spinG=document.getElementById('spin-group');
-let mx=0,my=0,rx=0,ry=0;
-dot.style.opacity='0'; ring.style.opacity='0';
-document.addEventListener('mousemove',function(e){
-  mx=e.clientX; my=e.clientY;
-  dot.style.left=mx+'px'; dot.style.top=my+'px';
-  dot.style.opacity='1'; ring.style.opacity='1';
-});
-(function loop(){
-  rx+=(mx-rx)*.09; ry+=(my-ry)*.09;
-  ring.style.left=rx+'px'; ring.style.top=ry+'px';
-  requestAnimationFrame(loop);
-})();
-document.querySelectorAll('a,button').forEach(function(el){
-  el.addEventListener('mouseenter',function(){
-    dot.style.width='8px'; dot.style.height='8px';
-    svg.style.transform='scale(1.4)';
-    spinG.style.animationDuration='3s';
-  });
-  el.addEventListener('mouseleave',function(){
-    dot.style.width='4px'; dot.style.height='4px';
-    svg.style.transform='scale(1)';
-    spinG.style.animationDuration='8s';
-  });
-});
-
+<script>
 const canvas=document.getElementById('bg-canvas'),ctx=canvas.getContext('2d');
-let W,H,n
+let W,H,nodes=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+resize();window.addEventListener('resize',resize);
+for(let i=0;i<45;i++)nodes.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.2+.4});
+(function draw(){
+  ctx.clearRect(0,0,W,H);
+  for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle=`rgba(201,168,76,${.06*(1-d/120)})`;ctx.lineWidth=.5;ctx.stroke();}}
+  for(const n of nodes){ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle='rgba(201,168,76,0.22)';ctx.fill();n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;}
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
