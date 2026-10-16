@@ -1,633 +1,164 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arinze Jonathan Edeh - Cloud & DevOps Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --void: #03050a;
-  --deep: #070b12;
-  --panel: #0f1520;
-  --panel2: #111827;
-  --border: rgba(255,255,255,0.07);
-  --border-lit: rgba(255,255,255,0.13);
-  --gold: #c9a84c;
-  --gold-light: #e4c97e;
-  --gold-dim: rgba(201,168,76,0.15);
-  --cyan: #4fc8e8;
-  --green: #3de8a0;
-  --green-dim: rgba(61,232,160,0.08);
-  --text: #f0ece4;
-  --text-b: rgba(240,236,228,0.82);
-  --text-c: rgba(240,236,228,0.52);
-  --fd: 'Playfair Display', serif;
-  --fb: 'Outfit', sans-serif;
-  --fm: 'JetBrains Mono', monospace;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{background:var(--void);color:var(--text);font-family:var(--fb);font-weight:300;line-height:1.7;overflow-x:hidden;}
+[Arinze Edeh](#top)[Platform](#platform)[Cloud and DevOps](#work)[Incidents](#incidents)[Foundation](#foundation)[Credentials](#credentials)[Contact](#contact)
 
-/* CUSTOM CURSOR */
-html, body, body * {
-  cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><defs><filter id='g'><feGaussianBlur stdDeviation='1.5' result='b'/><feMerge><feMergeNode in='b'/><feMergeNode in='SourceGraphic'/></feMerge></filter></defs><path d='M4,4 L28,16 L16,18 L12,28 Z' fill='none' stroke='%23c9a84c' stroke-width='1.8' stroke-linejoin='round' filter='url(%23g)'/><circle cx='4' cy='4' r='2.5' fill='%23c9a84c' filter='url(%23g)'/></svg>") 4 4, auto !important;
-}
-html a, html button, html a *, html button * {
-  cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><defs><filter id='g'><feGaussianBlur stdDeviation='2.5' result='b'/><feMerge><feMergeNode in='b'/><feMergeNode in='SourceGraphic'/></feMerge></filter></defs><path d='M4,4 L28,16 L16,18 L12,28 Z' fill='none' stroke='%23e4c97e' stroke-width='2' stroke-linejoin='round' filter='url(%23g)'/><circle cx='4' cy='4' r='3.5' fill='%23e4c97e' filter='url(%23g)'/></svg>") 4 4, pointer !important;
-}
+# Arinze Edeh
 
-/* NOISE */
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:0.3;}
-#bg-canvas{position:fixed;inset:0;z-index:0;opacity:0.22;}
-main{position:relative;z-index:2;}
+**Cloud and DevOps engineer.** I build infrastructure on AWS and Azure, automate how it ships with Terraform and Jenkins, run it on Kubernetes, and document every step so someone else can rebuild it.
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:68px;background:rgba(3,5,10,0.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
-.nav-brand{display:flex;align-items:center;gap:1rem;}
-.nav-mono{width:34px;height:34px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:.85rem;color:var(--gold);position:relative;}
-.nav-mono::before{content:'';position:absolute;inset:3px;border:1px solid rgba(201,168,76,0.2);}
-.nav-name{font-family:var(--fm);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-c);}
-.nav-links{display:flex;align-items:center;gap:.2rem;}
-.nl{padding:.4rem .8rem;font-family:var(--fm);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:var(--text-c);text-decoration:none;position:relative;transition:color .2s;}
-.nl::after{content:'';position:absolute;bottom:0;left:.8rem;right:.8rem;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .25s;}
-.nl:hover{color:var(--gold);}
-.nl:hover::after{transform:scaleX(1);}
-.nav-cta{margin-left:.75rem;padding:.45rem 1.2rem;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:var(--fm);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;transition:all .2s;position:relative;overflow:hidden;}
-.nav-cta::before{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-101%);transition:transform .25s;z-index:-1;}
-.nav-cta:hover{color:var(--void);}
-.nav-cta:hover::before{transform:translateX(0);}
+Open to remote work and relocation
 
-/* STATUS BAR */
-.sb{position:fixed;bottom:0;left:0;right:0;z-index:100;height:26px;background:rgba(3,5,10,0.92);border-top:1px solid var(--border);display:flex;align-items:center;padding:0 4rem;gap:2rem;backdrop-filter:blur(12px);}
-.si{display:flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.55rem;color:var(--text-c);letter-spacing:.08em;}
-.sdot{width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:pdot 2s ease infinite;}
-@keyframes pdot{0%,100%{opacity:1;}50%{opacity:.4;}}
-.ssep{width:1px;height:12px;background:var(--border);}
+[See the projects](#platform)[Get in touch](#contact)
 
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 4rem 5rem;max-width:900px;margin:0 auto;}
-.h-eye{display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;opacity:0;animation:rup .8s ease .2s forwards;}
-.h-eye-line{width:36px;height:1px;background:var(--gold);}
-.h-eye-text{font-family:var(--fm);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
-.h-name{font-family:var(--fd);font-size:clamp(3rem,6vw,5.5rem);font-weight:900;line-height:.95;letter-spacing:-.02em;margin-bottom:1.5rem;opacity:0;animation:rup .9s ease .3s forwards;}
-.h-name .it{font-style:italic;color:var(--gold);}
-.h-what{font-size:clamp(1.1rem,2vw,1.35rem);font-weight:500;color:var(--text-b);line-height:1.5;margin-bottom:1.5rem;opacity:0;animation:rup .8s ease .45s forwards;max-width:700px;}
-.h-what em{color:var(--gold);font-style:normal;}
-.h-sub{font-size:1rem;color:var(--text-c);line-height:1.8;max-width:640px;margin-bottom:3rem;opacity:0;animation:rup .8s ease .6s forwards;}
-.h-badges{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:3rem;opacity:0;animation:rup .8s ease .7s forwards;}
-.hb{padding:.35rem .9rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;border:1px solid var(--border-lit);color:var(--text-c);}
-.hb-gold{border-color:rgba(201,168,76,.3);background:var(--gold-dim);color:var(--gold);}
-.hb-green{border-color:rgba(61,232,160,.25);background:var(--green-dim);color:var(--green);}
-.h-actions{display:flex;gap:1rem;opacity:0;animation:rup .8s ease .82s forwards;}
-.btn-g{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;background:var(--gold);color:var(--void);font-family:var(--fm);font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .2s;position:relative;overflow:hidden;}
-.btn-g::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-101%);transition:transform .2s;}
-.btn-g:hover::after{transform:translateX(0);}
-.btn-g:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(201,168,76,.25);}
-.btn-o{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;background:transparent;color:var(--text-b);border:1px solid var(--border-lit);font-family:var(--fm);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .2s;}
-.btn-o:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+TerraformAWS and AzureMicrosoft Certified\
+DevOps Engineer ExpertKubernetes
 
-/* NUMBERS STRIP */
-.numbers-strip{background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
-.ns-item{background:var(--panel);padding:2.5rem 2rem;text-align:center;transition:background .2s;}
-.ns-item:hover{background:var(--panel2);}
-.ns-val{font-family:var(--fd);font-size:3rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:.4rem;}
-.ns-label{font-size:.82rem;color:var(--text-c);line-height:1.4;}
+**Pipeline*main***
 
-/* SECTION */
-.sec{padding:7rem 4rem;max-width:1100px;margin:0 auto;}
-.sec-hdr{margin-bottom:4rem;}
-.sec-eye{display:flex;align-items:center;gap:.75rem;font-family:var(--fm);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;}
-.sec-eye::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
-.sec-ttl{font-family:var(--fd);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:1rem;}
-.sec-sub{font-size:.95rem;color:var(--text-c);max-width:560px;line-height:1.8;}
-.sec-rule{height:1px;background:linear-gradient(90deg,var(--border-lit),transparent);margin-bottom:4rem;}
+Build
 
-/* WHAT I DO */
-.what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
-.wc{background:var(--panel);border:1px solid var(--border);padding:2.2rem;position:relative;overflow:hidden;transition:all .3s;}
-.wc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transition:transform .3s;transform-origin:left;}
-.wc:hover{border-color:rgba(201,168,76,.2);transform:translateY(-4px);}
-.wc:hover::before{transform:scaleX(1);}
-.wc-icon{font-size:1.8rem;margin-bottom:1.2rem;display:block;}
-.wc-title{font-family:var(--fd);font-size:1.1rem;font-weight:700;margin-bottom:.8rem;color:var(--text);}
-.wc-desc{font-size:.86rem;color:var(--text-c);line-height:1.8;}
-.wc-analogy{margin-top:1rem;padding:.8rem;background:rgba(201,168,76,.06);border-left:2px solid var(--gold);font-size:.78rem;color:var(--text-b);line-height:1.6;font-style:italic;}
+Test
 
-/* STORY */
-.story-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:start;}
-.story-text p{font-size:.95rem;line-height:1.95;color:var(--text-b);margin-bottom:1.4rem;}
-.story-text p strong{color:var(--text);font-weight:600;}
-.story-text p em{color:var(--gold);font-style:italic;}
-.story-quote{border-left:2px solid var(--gold);padding:1.2rem 1.5rem;margin:2rem 0;font-family:var(--fd);font-size:1.05rem;font-style:italic;color:var(--text-b);line-height:1.7;background:rgba(201,168,76,.04);}
-.story-panel{background:var(--panel);border:1px solid var(--border);overflow:hidden;}
-.sp-hdr{padding:1.8rem;border-bottom:1px solid var(--border);background:rgba(201,168,76,.04);}
-.sp-hdr-title{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
-.sp-hdr-name{font-family:var(--fd);font-size:1rem;font-weight:700;}
-.sp-hdr-role{font-family:var(--fm);font-size:.6rem;color:var(--text-c);letter-spacing:.1em;margin-top:.2rem;}
-.sp-row{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.8rem;border-bottom:1px solid var(--border);transition:background .2s;}
-.sp-row:hover{background:rgba(255,255,255,.02);}
-.sp-row:last-child{border-bottom:none;}
-.sp-key{font-family:var(--fm);font-size:.56rem;color:var(--text-c);letter-spacing:.12em;text-transform:uppercase;}
-.sp-val{font-family:var(--fm);font-size:.65rem;color:var(--text-b);text-align:right;}
-.sp-val.g{color:var(--green);}
-.sp-val.go{color:var(--gold);}
+Deploy to EKS
 
-/* PROJECTS */
-.proj-stack{display:grid;gap:1.5rem;}
-.proj-card{background:var(--panel);border:1px solid var(--border);overflow:hidden;transition:border-color .3s;}
-.proj-card:hover{border-color:rgba(201,168,76,.2);}
-.proj-card-top{padding:2.5rem;border-bottom:1px solid var(--border);position:relative;}
-.proj-card-top::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);}
-.proj-eyebrow{display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem;flex-wrap:wrap;}
-.pt{padding:.2rem .65rem;font-family:var(--fm);font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;}
-.pt-gold{background:var(--gold-dim);border:1px solid rgba(201,168,76,.3);color:var(--gold);}
-.pt-cyan{background:rgba(79,200,232,.08);border:1px solid rgba(79,200,232,.2);color:var(--cyan);}
-.pt-green{background:var(--green-dim);border:1px solid rgba(61,232,160,.2);color:var(--green);}
-.proj-title{font-family:var(--fd);font-size:1.5rem;font-weight:700;margin-bottom:.8rem;letter-spacing:-.01em;}
-.proj-plain{font-size:.95rem;color:var(--text-b);line-height:1.85;margin-bottom:1rem;}
-.proj-analogy{padding:1rem 1.2rem;background:rgba(201,168,76,.05);border-left:2px solid var(--gold);font-size:.82rem;color:var(--text-b);line-height:1.7;margin-bottom:1.5rem;}
-.proj-analogy strong{color:var(--gold);}
-.proj-link{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:gap .2s;}
-.proj-link:hover{gap:.8rem;}
-.proj-card-bottom{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
-.proj-stat{background:var(--panel);padding:1.5rem;text-align:center;transition:background .2s;}
-.proj-stat:hover{background:var(--panel2);}
-.proj-stat-val{font-family:var(--fd);font-size:1.5rem;font-weight:700;color:var(--text);line-height:1;margin-bottom:.3rem;}
-.proj-stat-label{font-size:.7rem;color:var(--text-c);line-height:1.4;}
+Alerts armed
 
-/* IMPACT */
-.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
-.impact-card{background:var(--panel);padding:2.5rem;transition:background .2s;}
-.impact-card:hover{background:var(--panel2);}
-.impact-icon{font-size:1.6rem;margin-bottom:1rem;display:block;}
-.impact-title{font-family:var(--fd);font-size:1.05rem;font-weight:700;margin-bottom:.7rem;color:var(--text);}
-.impact-desc{font-size:.85rem;color:var(--text-c);line-height:1.8;}
-.impact-result{margin-top:1rem;font-family:var(--fm);font-size:.62rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;}
+Portrait of Arinze Edeh in a navy suit and red tie
 
-/* CREDENTIALS */
-.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:3rem;}
-.cc{background:var(--panel);border:1px solid var(--border);padding:2.2rem;position:relative;overflow:hidden;transition:all .3s;}
-.cc::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 0% 100%,var(--gold-dim),transparent 60%);opacity:0;transition:opacity .4s;}
-.cc:hover{border-color:rgba(201,168,76,.2);transform:translateY(-4px);box-shadow:0 20px 48px rgba(0,0,0,.4);}
-.cc:hover::after{opacity:1;}
-.ce{width:48px;height:48px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.5rem;position:relative;z-index:1;}
-.cn{font-family:var(--fd);font-size:1rem;font-weight:700;margin-bottom:.3rem;position:relative;z-index:1;}
-.ci{font-family:var(--fm);font-size:.58rem;color:var(--text-c);letter-spacing:.12em;text-transform:uppercase;position:relative;z-index:1;margin-bottom:1rem;}
-.cv{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fm);font-size:.54rem;color:var(--green);letter-spacing:.1em;position:relative;z-index:1;}
-.cvck{width:13px;height:13px;border:1px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:.48rem;border-radius:50%;}
+Flagship project
 
-/* ROLES */
-.roles-intro{font-size:.95rem;color:var(--text-c);line-height:1.8;max-width:680px;margin-bottom:3rem;}
-.roles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);}
-.role-card{background:var(--panel);padding:1.8rem 2rem;transition:background .2s;display:flex;align-items:flex-start;gap:1rem;}
-.role-card:hover{background:var(--panel2);}
-.role-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.5rem;}
-.role-title{font-family:var(--fd);font-size:.95rem;font-weight:700;margin-bottom:.3rem;}
-.role-plain{font-size:.78rem;color:var(--text-c);line-height:1.6;}
+## A multi-cloud CI/CD platform, drawn as it is built
 
-/* CONTACT */
-.contact-wrap{background:var(--panel);border:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
-.contact-left{padding:4rem;border-right:1px solid var(--border);}
-.ch{font-family:var(--fd);font-size:2.2rem;font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:1.2rem;}
-.ch .go{color:var(--gold);font-style:italic;}
-.cb{color:var(--text-c);font-size:.9rem;line-height:1.85;margin-bottom:2.5rem;}
-.contact-right{padding:4rem;display:flex;flex-direction:column;gap:.8rem;justify-content:center;}
-.ci-item{display:flex;align-items:center;gap:1rem;padding:1.2rem;background:rgba(255,255,255,.02);border:1px solid var(--border);text-decoration:none;color:var(--text);transition:all .25s;position:relative;overflow:hidden;}
-.ci-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transition:transform .25s;}
-.ci-item:hover{border-color:rgba(201,168,76,.2);transform:translateX(4px);}
-.ci-item:hover::before{transform:scaleY(1);}
-.ci-ico{width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.62rem;color:var(--gold);flex-shrink:0;}
-.ci-lbl{font-family:var(--fm);font-size:.52rem;color:var(--text-c);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.15rem;}
-.ci-val{font-size:.78rem;color:var(--text-b);}
-.ci-arr{color:var(--text-c);font-size:.65rem;margin-left:auto;transition:transform .2s;}
-.ci-item:hover .ci-arr{transform:translateX(4px);color:var(--gold);}
+**Select a part.**Move over the diagram to tilt it, and hover or tab to a part to see what it does.
 
-footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:1.8rem 4rem 3.2rem;display:flex;align-items:center;justify-content:space-between;}
-.fb{font-family:var(--fm);font-size:.55rem;color:var(--text-c);letter-spacing:.14em;}
-.fb span{color:var(--gold);}
+Configuration and troubleshooting notes are in the repository. [Open cloud-infrastructure-devops-labs on GitHub](https://github.com/arinze-edeh/cloud-infrastructure-devops-labs)
 
-@keyframes rup{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+200+ implementations in three folders
 
-@media(max-width:900px){
-  nav{padding:0 1.5rem;}.nav-links{display:none;}
-  .hero{padding:5.5rem 1.5rem 3rem;}
-  .sec{padding:4.5rem 1.5rem;}
-  .numbers-strip{grid-template-columns:1fr 1fr;}
-  .what-grid{grid-template-columns:1fr;}
-  .story-layout{grid-template-columns:1fr;gap:3rem;}
-  .proj-card-bottom{grid-template-columns:1fr 1fr;}
-  .impact-grid{grid-template-columns:1fr;}
-  .cred-grid{grid-template-columns:1fr;}
-  .roles-grid{grid-template-columns:1fr;}
-  .contact-wrap{grid-template-columns:1fr;}
-  .contact-left{border-right:none;border-bottom:1px solid var(--border);}
-  footer{flex-direction:column;gap:1rem;text-align:center;padding:1.5rem 1.5rem 3.2rem;}
-  .sb{padding:0 1.5rem;gap:1rem;}
-}
-</style>
-</head>
-<body>
-<canvas id="bg-canvas"></canvas>
+## Cloud and DevOps engineering, by domain
 
-<!-- NAV -->
-<nav>
-  <div class="nav-brand">
-    <div class="nav-mono">A</div>
-    <div class="nav-name">Arinze Jonathan Edeh</div>
-  </div>
-  <div class="nav-links">
-    <a href="#what-i-do" class="nl">What I Do</a>
-    <a href="#story" class="nl">My Story</a>
-    <a href="#projects" class="nl">Projects</a>
-    <a href="#impact" class="nl">Impact</a>
-    <a href="#credentials" class="nl">Credentials</a>
-    <a href="#lessons" class="nl">Field Notes</a>
-    <a href="#contact" class="nav-cta">Contact</a>
-  </div>
-</nav>
+### DevOps engineering
 
-<main>
+100+ implementations
 
-<!-- HERO -->
-<section class="hero">
-  <div class="h-eye"><div class="h-eye-line"></div><span class="h-eye-text">Cloud Infrastructure & Automation Engineer</span></div>
-  <h1 class="h-name">Arinze<br><span class="it">Jonathan</span><br>Edeh</h1>
-  <p class="h-what">I design, build, and automate the cloud infrastructure that keeps organisations <em>secure, reliable, and always running</em>, without needing to think about it.</p>
-  <p class="h-sub">I started out fixing software problems for people around me, learning by solving real issues rather than following a structured path. That curiosity grew into a deep focus on how systems work at scale, and today I design and implement cloud infrastructure that is resilient, automated, and built to production standards.</p>
-  <div class="h-badges">
-    <span class="hb hb-green">● Open to Work</span>
-    <span class="hb hb-gold">200+ Implementations</span>
-    <span class="hb">AWS Certified</span>
-    <span class="hb">Microsoft Azure Certified</span>
-    <span class="hb">Remote · Relocation · Nigeria</span>
-  </div>
-  <div class="h-actions">
-    <a href="#story" class="btn-g">Read My Story →</a>
-    <a href="#projects" class="btn-o">See My Work</a>
-    <a href="https://github.com/arinze-edeh/arinze-edeh/raw/main/Arinze_Edeh_Resume.pdf" target="_blank" class="btn-o">Download CV ↓</a>
-  </div>
-</section>
+Jenkins multistage pipelines with role-based access, distributed agents, parameterised builds, and chained deployments. Terraform for AWS networks, compute, IAM and alarms. Ansible playbooks across more than ten modules with Jinja2 templating.
 
-<!-- NUMBERS -->
-<div class="numbers-strip">
-  <div class="ns-item">
-    <div class="ns-val">200+</div>
-    <div class="ns-label">Real systems built and documented to production standards</div>
-  </div>
-  <div class="ns-item">
-    <div class="ns-val">3</div>
-    <div class="ns-label">Industry certifications from AWS, Microsoft, and Google</div>
-  </div>
-  <div class="ns-item">
-    <div class="ns-val">1,794</div>
-    <div class="ns-label">Contributions on GitHub, evidence of consistent, daily work</div>
-  </div>
-  <div class="ns-item">
-    <div class="ns-val">41</div>
-    <div class="ns-label">Day active streak, showing up every single day without fail</div>
-  </div>
-</div>
+Kubernetes with rolling updates and rollbacks, persistent volumes, sidecars, init containers and Secrets, plus Docker and Compose, Git hooks, and hardened Linux servers.
 
-<!-- WHAT I DO -->
-<section class="sec" id="what-i-do">
-  <div class="sec-hdr">
-    <div class="sec-eye">In Simple Terms</div>
-    <h2 class="sec-ttl">What I Actually Do</h2>
-    <p class="sec-sub">No jargon. Here is what my work means in the real world, and why it matters to any organisation that depends on technology.</p>
-  </div>
-  <div class="sec-rule"></div>
-  <div class="what-grid">
+JenkinsTerraformAnsibleKubernetesDockerGitSELinuxIPtablesNginx
 
-    <div class="wc">
-      <span class="wc-icon">🏗️</span>
-      <div class="wc-title">I Build the Digital Foundation</div>
-      <p class="wc-desc">Every organisation that uses technology, a hospital, a bank, a startup, needs a foundation: servers, networks, storage, and security. I design and build that foundation in the cloud, so organisations don't need physical hardware that breaks, costs a fortune to maintain, or goes down at the worst possible moment.</p>
-      <div class="wc-analogy">Think of it like constructing the plumbing and electrical wiring in a building, invisible when it works, catastrophic when it doesn't. I make sure it always works.</div>
-    </div>
+[Browse the devops folder](https://github.com/arinze-edeh/cloud-infrastructure-devops-labs/tree/main/devops)
 
-    <div class="wc">
-      <span class="wc-icon">⚙️</span>
-      <div class="wc-title">I Automate Repetitive Work</div>
-      <p class="wc-desc">Many organisations waste thousands of hours on tasks that a computer could do in seconds, deploying software updates, checking system health, creating user accounts, running backups. I build systems that do these things automatically, reliably, and without human error, freeing teams to focus on work that actually requires human thinking.</p>
-      <div class="wc-analogy">Like setting up a factory assembly line instead of building each product by hand, faster, consistent, and it runs while you sleep.</div>
-    </div>
+### AWS engineering
 
-    <div class="wc">
-      <span class="wc-icon">🛡️</span>
-      <div class="wc-title">I Keep Systems Secure and Running</div>
-      <p class="wc-desc">A single cyberattack or system crash can cost an organisation millions and destroy trust built over years. I build the layers of security and redundancy that prevent this, controlling who has access to what, encrypting sensitive data, monitoring for threats, and ensuring that if one part of a system fails, everything else keeps running without interruption.</p>
-      <div class="wc-analogy">Think of it as installing locks, alarms, fire exits, and backup generators, all at once, for a company's entire digital operation.</div>
-    </div>
+50+ implementations
 
-  </div>
-</section>
+VPC design with peering and NAT, load-balanced EC2, least-privilege IAM, S3, RDS, DynamoDB, Lambda with SQS and SNS, ECS and EKS, auto scaling, and CloudFormation.
 
-<!-- STORY -->
-<section class="sec" id="story">
-  <div class="sec-hdr">
-    <div class="sec-eye">Personal Background</div>
-    <h2 class="sec-ttl">Where I Come From</h2>
-  </div>
-  <div class="sec-rule"></div>
-  <div class="story-layout">
-    <div class="story-text">
-      <p>My journey into technology did not begin in a classroom or a corporate training programme. It began with a broken computer and someone who needed it fixed. I was the person who figured it out. Not because I had been trained to, but because the problem was there, and I was too curious to walk away from it.</p>
-      <p>That became a pattern. Friends, family, neighbours, they all came to me with software issues, crashed systems, devices that would not respond. Each one was a lesson. Each fix built a layer of understanding that no curriculum could have sequenced as well as real-world urgency. <strong>I learned by doing, because doing was the only option available to me.</strong></p>
-      <div class="story-quote">"There was no structured path, no mentor, no institution pointing the way. Just problems that needed solving and the discipline to keep going until I understood not just how to fix them, but why they broke in the first place."</div>
-      <p>That instinct, to trace a problem back to its root and build something that prevents it from recurring, became the foundation of everything I do now. It took me from fixing individual machines to designing the infrastructure that powers entire organisations. I taught myself cloud engineering and DevOps the same way I learned everything else: by building real environments, breaking them deliberately, fixing them methodically, and <em>documenting every step</em> so the knowledge would last.</p>
-      <p>The result is a portfolio of <strong>200+ production-grade implementations</strong> across cloud platforms used by the world's largest companies, built entirely through self-study, discipline, and a refusal to let limited resources become an excuse for limited ambition.</p>
-      <p>I am now at a point in my career where I am ready to take everything I have built independently and bring it into a team, a mission, something bigger than a solo effort. I want to operate at a higher level, contribute to systems that matter, and grow alongside engineers who take their craft as seriously as I take mine. I am open to remote work, relocation, and any opportunity that puts the right environment within reach.</p>
-    </div>
-    <div>
-      <div class="story-panel">
-        <div class="sp-hdr">
-          <div class="sp-hdr-title">Engineer Profile</div>
-          <div class="sp-hdr-name">Arinze Jonathan Edeh</div>
-          <div class="sp-hdr-role">Cloud Infrastructure & Automation Engineer</div>
-        </div>
-        <div class="sp-row"><span class="sp-key">Status</span><span class="sp-val g">● Open to Work</span></div>
-        <div class="sp-row"><span class="sp-key">Availability</span><span class="sp-val">Remote · Relocation</span></div>
-        <div class="sp-row"><span class="sp-key">Certifications</span><span class="sp-val go">AWS · AZ-900 · Google IT</span></div>
-        <div class="sp-row"><span class="sp-key">Systems Built</span><span class="sp-val">200+ implementations</span></div>
-        <div class="sp-row"><span class="sp-key">GitHub Activity</span><span class="sp-val">1,794 contributions</span></div>
-        <div class="sp-row"><span class="sp-key">Current Streak</span><span class="sp-val go">41 days active</span></div>
-        <div class="sp-row"><span class="sp-key">Cloud Platforms</span><span class="sp-val">AWS & Microsoft Azure</span></div>
-        <div class="sp-row"><span class="sp-key">Background</span><span class="sp-val">Self-taught · Production-Focused</span></div>
-        <div class="sp-row"><span class="sp-key">Email</span><span class="sp-val"><a href="mailto:edeharinze389&#64;gmail.com" style="color:var(--cyan);text-decoration:none">edeharinze389&#64;gmail&#46;com</a></span></div>
-        <div class="sp-row"><span class="sp-key">GitHub</span><span class="sp-val"><a href="https://github.com/arinze-edeh" target="_blank" style="color:var(--cyan);text-decoration:none">github.com/arinze-edeh</a></span></div>
-      </div>
-    </div>
-  </div>
-</section>
+VPCEKS and ECSIAM and KMSLambdaCloudFormation
 
-<!-- PROJECTS -->
-<section class="sec" id="projects">
-  <div class="sec-hdr">
-    <div class="sec-eye">Portfolio</div>
-    <h2 class="sec-ttl">What I Have Built</h2>
-    <p class="sec-sub">Two repositories. 200+ real implementations. Each one built, tested, and documented to the standard of a working production environment.</p>
-  </div>
-  <div class="sec-rule"></div>
-  <div class="proj-stack">
+[Browse the aws folder](https://github.com/arinze-edeh/cloud-infrastructure-devops-labs/tree/main/aws)
 
-    <!-- Project 1 -->
-    <div class="proj-card">
-      <div class="proj-card-top">
-        <div class="proj-eyebrow">
-          <span class="pt pt-gold">Featured Project</span>
-          <span class="pt pt-cyan">Cloud Engineering</span>
-          <span class="pt pt-green">200+ Implementations</span>
-        </div>
-        <h3 class="proj-title">Cloud Infrastructure & DevOps Engineering</h3>
-        <p class="proj-plain">This is the core of my portfolio. It covers the full lifecycle of how modern digital systems are built, automated, secured, and maintained, from setting up servers in the cloud, to making sure software updates are deployed automatically without any downtime, to responding when something breaks. Every scenario here mirrors what a real engineering team at a real company would face.</p>
-        <div class="proj-analogy"><strong>In plain terms:</strong> If a company's digital operations were a city, this project covers building the roads, installing the power grid, setting up the traffic system, and making sure emergency services can respond when anything goes wrong, all of it automated, all of it secure, all of it documented.</div>
-        <a href="https://github.com/arinze-edeh/cloud-infrastructure-devops-labs" target="_blank" class="proj-link">View the full project on GitHub →</a>
-      </div>
-      <div class="proj-card-bottom">
-        <div class="proj-stat"><div class="proj-stat-val">200+</div><div class="proj-stat-label">Hands-on implementations</div></div>
-        <div class="proj-stat"><div class="proj-stat-val">2</div><div class="proj-stat-label">Cloud platforms (AWS & Azure)</div></div>
-        <div class="proj-stat"><div class="proj-stat-val">40+</div><div class="proj-stat-label">Cloud services used</div></div>
-        <div class="proj-stat"><div class="proj-stat-val">100%</div><div class="proj-stat-label">Documented & production-ready</div></div>
-      </div>
-    </div>
+### Azure engineering
 
-    <!-- Case Studies -->
-    <div style="background:var(--panel);border:1px solid var(--border);overflow:hidden;margin-top:1px;">
-      <div style="padding:2rem 2.5rem;border-bottom:1px solid var(--border);background:rgba(201,168,76,0.04);">
-        <div style="font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">Deep Dive</div>
-        <h3 style="font-family:var(--fd);font-size:1.3rem;font-weight:700;margin-bottom:.4rem;">Case Studies, Real Problems, Real Solutions</h3>
-        <p style="font-size:.85rem;color:var(--text-c);line-height:1.7;">Two examples from the portfolio showing the full engineering thought process: the problem, the approach, the outcome.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);">
+50+ implementations
 
-        <div style="background:var(--panel);padding:2.5rem;">
-          <div style="font-family:var(--fm);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:1.2rem;">Case Study 01 · CI/CD Pipeline Engineering</div>
-          <div style="display:grid;grid-template-columns:auto 1fr;gap:.6rem 1rem;margin-bottom:1.8rem;">
-            <span style="font-family:var(--fm);font-size:.6rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;padding-top:.15rem;">Problem</span>
-            <p style="font-size:.84rem;color:var(--text-b);line-height:1.7;margin:0;">A software team deploying manually across 12 sequential steps with no rollback capability. Each release took hours, introduced human error, and required downtime during deployment windows.</p>
-            <span style="font-family:var(--fm);font-size:.6rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;padding-top:.15rem;">Solution</span>
-            <p style="font-size:.84rem;color:var(--text-b);line-height:1.7;margin:0;">Designed and implemented a multistage CI/CD pipeline with automated testing gates, parallel build stages, environment-specific deployment controls, and instant rollback on failure detection.</p>
-            <span style="font-family:var(--fm);font-size:.6rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;padding-top:.15rem;">Result</span>
-            <p style="font-size:.84rem;color:var(--text-b);line-height:1.7;margin:0;">12 manual steps reduced to a single automated trigger. Deployment time dropped from 3+ hours to under 8 minutes. Zero downtime releases. Full audit trail on every change.</p>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);">
-            <div style="background:var(--panel2);padding:1rem;text-align:center;"><div style="font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--gold);">8 min</div><div style="font-size:.65rem;color:var(--text-c);margin-top:.2rem;">Deploy time</div></div>
-            <div style="background:var(--panel2);padding:1rem;text-align:center;"><div style="font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--gold);">0</div><div style="font-size:.65rem;color:var(--text-c);margin-top:.2rem;">Downtime releases</div></div>
-            <div style="background:var(--panel2);padding:1rem;text-align:center;"><div style="font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--gold);">12→1</div><div style="font-size:.65rem;color:var(--text-c);margin-top:.2rem;">Steps automated</div></div>
-          </div>
-        </div>
+VNets with peering, Application Gateway, AKS, Container Registry, Key Vault, Azure SQL, Event Hub capture to Blob Storage, and ARM templates.
 
-        <div style="background:var(--panel);padding:2.5rem;">
-          <div style="font-family:var(--fm);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:1.2rem;">Case Study 02 · Cloud Infrastructure Resilience</div>
-          <div style="display:grid;grid-template-columns:auto 1fr;gap:.6rem 1rem;margin-bottom:1.8rem;">
-            <span style="font-family:var(--fm);font-size:.6rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;padding-top:.15rem;">Problem</span>
-            <p style="font-size:.84rem;color:var(--text-b);line-height:1.7;margin:0;">A cloud environment with a single point of failure: one availability zone, no auto-scaling, no health monitoring, and manual intervention required whenever a service degraded or traffic spiked.</p>
-            <span style="font-family:var(--fm);font-size:.6rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;padding-top:.15rem;">Solution</span>
-            <p style="font-size:.84rem;color:var(--text-b);line-height:1.7;margin:0;">Redesigned the architecture across multiple availability zones with an application load balancer, auto-scaling groups triggered by CPU and request thresholds, and CloudWatch alerting for proactive fault detection.</p>
-            <span style="font-family:var(--fm);font-size:.6rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;padding-top:.15rem;">Result</span>
-            <p style="font-size:.84rem;color:var(--text-b);line-height:1.7;margin:0;">System achieved 99.9% simulated uptime under load testing. Infrastructure scaled automatically during traffic peaks with no manual intervention. Mean time to detect failure reduced to under 60 seconds.</p>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);">
-            <div style="background:var(--panel2);padding:1rem;text-align:center;"><div style="font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--gold);">99.9%</div><div style="font-size:.65rem;color:var(--text-c);margin-top:.2rem;">Uptime achieved</div></div>
-            <div style="background:var(--panel2);padding:1rem;text-align:center;"><div style="font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--gold);">&lt;60s</div><div style="font-size:.65rem;color:var(--text-c);margin-top:.2rem;">Fault detection</div></div>
-            <div style="background:var(--panel2);padding:1rem;text-align:center;"><div style="font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--gold);">Auto</div><div style="font-size:.65rem;color:var(--text-c);margin-top:.2rem;">Zero manual scaling</div></div>
-          </div>
-        </div>
+VNetAKSKey VaultEvent HubARM templates
 
-      </div>
-    </div>
+[Browse the azure folder](https://github.com/arinze-edeh/cloud-infrastructure-devops-labs/tree/main/azure)
 
-    <!-- Project 2 -->
-    <div class="proj-card">
-      <div class="proj-card-top">
-        <div class="proj-eyebrow">
-          <span class="pt pt-gold">IT Infrastructure</span>
-          <span class="pt pt-cyan">13 Projects</span>
-        </div>
-        <h3 class="proj-title">IT Systems & Enterprise Infrastructure</h3>
-        <p class="proj-plain">Before cloud systems, there are the everyday IT foundations that keep an organisation running, employee accounts, office networks, security policies, system updates, helpdesk support. These 13 projects simulate exactly those environments: the kind of infrastructure that thousands of employees in a company depend on every single day to do their jobs.</p>
-        <div class="proj-analogy"><strong>In plain terms:</strong> This covers what happens inside a company's IT department, setting up new staff accounts, fixing crashed computers, keeping the network secure, making sure everyone's software is up to date, and having a proper system for when things go wrong. All 13 scenarios, all completed and documented.</div>
-        <a href="https://github.com/arinze-edeh/technical-projects-portfolio" target="_blank" class="proj-link">View the full project on GitHub →</a>
-      </div>
-      <div class="proj-card-bottom">
-        <div class="proj-stat"><div class="proj-stat-val">13</div><div class="proj-stat-label">Complete project implementations</div></div>
-        <div class="proj-stat"><div class="proj-stat-val">End-to-End</div><div class="proj-stat-label">Full enterprise IT simulation</div></div>
-        <div class="proj-stat"><div class="proj-stat-val">100%</div><div class="proj-stat-label">Documented with precision</div></div>
-        <div class="proj-stat"><div class="proj-stat-val">Real-World</div><div class="proj-stat-label">Production-grade scenarios</div></div>
-      </div>
-    </div>
+Troubleshooting
 
-  </div>
-</section>
+## Live faults, traced to the root cause and fixed
 
-<!-- IMPACT -->
-<section class="sec" id="impact">
-  <div class="sec-hdr">
-    <div class="sec-eye">Why It Matters</div>
-    <h2 class="sec-ttl">What This Work Means<br>in the Real World</h2>
-    <p class="sec-sub">Technical skills are only valuable if they solve real problems. Here is what the work in this portfolio actually means for organisations and the people they serve.</p>
-  </div>
-  <div class="sec-rule"></div>
-  <div class="impact-grid">
-    <div class="impact-card">
-      <span class="impact-icon">⏱️</span>
-      <div class="impact-title">Hours of Work Saved Every Week</div>
-      <p class="impact-desc">Tasks that once required manual login, repeated commands, and human oversight now run on automated schedules without any involvement. A deployment that took 3+ hours and 12 manual steps now completes in under 8 minutes with a single trigger.</p>
-      <div class="impact-result">12 steps → 1 trigger · 3 hrs → 8 min deployment</div>
-    </div>
-    <div class="impact-card">
-      <span class="impact-icon">🔒</span>
-      <div class="impact-title">Organisations Protected from Attack</div>
-      <p class="impact-desc">Cyberattacks cost businesses and institutions billions every year, and the damage is not just financial. The security layers built in this portfolio control access, encrypt data, monitor for threats, and stop attackers before they cause harm.</p>
-      <div class="impact-result">Outcome: Data stays safe, trust is preserved</div>
-    </div>
-    <div class="impact-card">
-      <span class="impact-icon">🌐</span>
-      <div class="impact-title">Systems That Never Go Down</div>
-      <p class="impact-desc">Multi-zone architecture with automatic failover means no single failure can take a system offline. Load testing in this portfolio achieved 99.9% simulated uptime, with fault detection under 60 seconds and recovery without any manual intervention.</p>
-      <div class="impact-result">99.9% uptime · &lt;60s fault detection · Auto-recovery</div>
-    </div>
-    <div class="impact-card">
-      <span class="impact-icon">🚀</span>
-      <div class="impact-title">Faster Software Delivery</div>
-      <p class="impact-desc">In the past, updating software meant weeks of careful manual testing, staging, and deployment. Today, with the automation systems built in this portfolio, new features can be tested, approved, and deployed to thousands of users in minutes, safely, with instant rollback if anything goes wrong.</p>
-      <div class="impact-result">Outcome: Better products reach users faster</div>
-    </div>
-    <div class="impact-card">
-      <span class="impact-icon">💰</span>
-      <div class="impact-title">Significant Cost Reduction</div>
-      <p class="impact-desc">Physical servers are expensive to buy, power, cool, and maintain. Cloud infrastructure, when designed correctly, scales up when demand is high and scales back down when it is not, so organisations only pay for exactly what they use, when they use it.</p>
-      <div class="impact-result">Outcome: Lower IT costs, better margins</div>
-    </div>
-    <div class="impact-card">
-      <span class="impact-icon">🌍</span>
-      <div class="impact-title">A Model for African Engineers</div>
-      <p class="impact-desc">Every implementation in this portfolio was built in Nigeria, without institutional support, without a sponsor, and without the advantages that engineers in wealthier countries take for granted. This work is proof that world-class engineering talent exists on this continent, it just needs to be found and supported.</p>
-      <div class="impact-result">Outcome: Next generation has proof it's possible</div>
-    </div>
-  </div>
-</section>
+### Kubernetes volume mounts
 
-<!-- CREDENTIALS -->
-<section class="sec" id="credentials">
-  <div class="sec-hdr">
-    <div class="sec-eye">Verified Qualifications</div>
-    <h2 class="sec-ttl">Certifications & Recognition</h2>
-    <p class="sec-sub">These are internationally recognised credentials, earned through rigorous examination, that verify expertise in the world's leading cloud platforms.</p>
-  </div>
-  <div class="sec-rule"></div>
-  <div class="cred-grid">
-    <div class="cc">
-      <div class="ce" style="background:rgba(255,153,0,.06);border-color:rgba(255,153,0,.2)">☁️</div>
-      <div class="cn">AWS Cloud Practitioner</div>
-      <div class="ci">Amazon Web Services</div>
-      <p style="font-size:.8rem;color:var(--text-c);line-height:1.7;margin-bottom:1rem;">Amazon Web Services is the world's largest cloud platform, used by NASA, Netflix, Airbnb, and millions of organisations globally. This certification verifies foundational expertise in building on that platform.</p>
-      <div class="cv"><div class="cvck">✓</div>Internationally Verified</div>
-    </div>
-    <div class="cc">
-      <div class="ce" style="background:rgba(0,120,212,.06);border-color:rgba(0,120,212,.2)">🪟</div>
-      <div class="cn">Microsoft AZ-900</div>
-      <div class="ci">Microsoft Azure Fundamentals</div>
-      <p style="font-size:.8rem;color:var(--text-c);line-height:1.7;margin-bottom:1rem;">Microsoft Azure powers the digital operations of hundreds of thousands of businesses worldwide, including many government institutions and hospitals. This certification verifies verified knowledge of that platform.</p>
-      <div class="cv"><div class="cvck">✓</div>Internationally Verified</div>
-    </div>
-    <div class="cc">
-      <div class="ce" style="background:rgba(66,133,244,.06);border-color:rgba(66,133,244,.2)">🔵</div>
-      <div class="cn">Google IT Support Professional</div>
-      <div class="ci">Google · Coursera</div>
-      <p style="font-size:.8rem;color:var(--text-c);line-height:1.7;margin-bottom:1rem;">A professional certificate developed by Google, covering the full scope of IT support, from troubleshooting hardware and software to networking, security, and system administration.</p>
-      <div class="cv"><div class="cvck">✓</div>Internationally Verified</div>
-    </div>
-  </div>
-</section>
+Containers would not start. Pod describe output and logs pointed to wrong mount paths and mismatched claims. Fixed the manifest and confirmed readiness.
 
-<!-- ROLES -->
-<section class="sec" id="roles">
-  <div class="sec-hdr">
-    <div class="sec-eye">Career Targets</div>
-    <h2 class="sec-ttl">Roles I Am Ready For</h2>
-  </div>
-  <div class="sec-rule"></div>
-  <p class="roles-intro">The portfolio and skills described on this page qualify for a wide range of roles, from entry-level IT support through to senior cloud and infrastructure engineering positions. Here is what each role means in plain terms.</p>
-  <div class="roles-grid">
-    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">IT Support Specialist</div><div class="role-plain">The person employees call when their computer, network, or software has a problem. I have simulated every major support scenario an enterprise IT team faces.</div></div></div>
-    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">Systems Administrator</div><div class="role-plain">Manages the servers, user accounts, and internal systems that keep an organisation running day-to-day. A foundational IT role at any company with technology infrastructure.</div></div></div>
-    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">Cloud Engineer</div><div class="role-plain">Designs and manages a company's systems in the cloud, so they don't need expensive physical hardware and can scale instantly as the business grows.</div></div></div>
-    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">DevOps Engineer</div><div class="role-plain">Bridges the gap between building software and running it, automating the process of testing, deploying, and monitoring applications so teams can move faster and more safely.</div></div></div>
-    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">Infrastructure Engineer</div><div class="role-plain">Designs the underlying systems, networks, servers, storage, that everything else in a company depends on. The foundations that must never fail.</div></div></div>
-    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">Site Reliability Engineer</div><div class="role-plain">Ensures that systems stay online, performant, and resilient. When something breaks, this is the person who diagnoses it, fixes it, and makes sure it never breaks the same way again.</div></div></div>
-    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">Automation Engineer</div><div class="role-plain">Eliminates repetitive manual work by writing scripts and building systems that do it automatically, saving organisations time, money, and human error.</div></div></div>
-    <div class="role-card"><div class="role-dot"></div><div><div class="role-title">Platform Engineer</div><div class="role-plain">Builds the internal tools and infrastructure that other engineers use to do their work, the foundation that makes an entire engineering organisation more productive.</div></div></div>
-  </div>
-</section>
+### Dockerfile build failures
 
-<!-- LESSONS -->
-<section class="sec" id="lessons">
-  <div class="sec-hdr">
-    <div class="sec-eye">Engineering Honesty</div>
-    <h2 class="sec-ttl">Lessons From the Field</h2>
-    <p class="sec-sub">The best engineers are not the ones who never fail. They are the ones who document what broke, understand exactly why, and build something better because of it.</p>
-  </div>
-  <div class="sec-rule"></div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;">
+Inspected build output layer by layer, corrected base image incompatibilities, and verified with full build and run cycles.
 
-    <div style="background:var(--panel);border:1px solid var(--border);padding:2rem;border-left:2px solid var(--gold);">
-      <div style="font-family:var(--fm);font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Lesson 01 · Kubernetes</div>
-      <h4 style="font-family:var(--fd);font-size:1rem;font-weight:700;margin-bottom:.8rem;color:var(--text);">When Pods Kept Crashing at 3am</h4>
-      <p style="font-size:.82rem;color:var(--text-b);line-height:1.75;margin-bottom:1rem;">A misconfigured liveness probe was restarting healthy containers under load, causing cascading failures that looked like an application bug. I spent hours chasing the wrong problem.</p>
-      <p style="font-size:.82rem;color:var(--text-b);line-height:1.75;margin-bottom:1rem;"><strong style="color:var(--text);">What I learned:</strong> Monitoring tells you something is wrong. Only understanding the system tells you why. I rebuilt every probe configuration in the portfolio with explicit thresholds and documented the failure signature so it could never be misdiagnosed again.</p>
-      <div style="font-family:var(--fm);font-size:.6rem;color:var(--green);letter-spacing:.1em;text-transform:uppercase;">Outcome: Probe hardening added to all K8s implementations</div>
-    </div>
+### MariaDB outage
 
-    <div style="background:var(--panel);border:1px solid var(--border);padding:2rem;border-left:2px solid var(--gold);">
-      <div style="font-family:var(--fm);font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Lesson 02 · Terraform</div>
-      <h4 style="font-family:var(--fd);font-size:1rem;font-weight:700;margin-bottom:.8rem;color:var(--text);">The State File I Almost Destroyed</h4>
-      <p style="font-size:.82rem;color:var(--text-b);line-height:1.75;margin-bottom:1rem;">Running terraform apply without reviewing the plan first resulted in a security group being destroyed and recreated, briefly exposing a test environment. Nothing was breached, but the risk was real and entirely my fault.</p>
-      <p style="font-size:.82rem;color:var(--text-b);line-height:1.75;margin-bottom:1rem;"><strong style="color:var(--text);">What I learned:</strong> Infrastructure as code is powerful precisely because it is declarative and irreversible. Every apply now follows a mandatory plan review. State files are always remote and locked. This discipline is non-negotiable.</p>
-      <div style="font-family:var(--fm);font-size:.6rem;color:var(--green);letter-spacing:.1em;text-transform:uppercase;">Outcome: Remote state + plan gates on all Terraform work</div>
-    </div>
+Used service status and error logs to isolate a configuration fault, corrected it, and tested connectivity after recovery.
 
-    <div style="background:var(--panel);border:1px solid var(--border);padding:2rem;border-left:2px solid var(--gold);">
-      <div style="font-family:var(--fm);font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Lesson 03 · Linux Hardening</div>
-      <h4 style="font-family:var(--fd);font-size:1rem;font-weight:700;margin-bottom:.8rem;color:var(--text);">Locked Myself Out of My Own Server</h4>
-      <p style="font-size:.82rem;color:var(--text-b);line-height:1.75;margin-bottom:1rem;">Applying an IPtables ruleset without a fallback rule dropped all inbound traffic, including my own SSH session. The server was running perfectly. I just could not get into it.</p>
-      <p style="font-size:.82rem;color:var(--text-b);line-height:1.75;margin-bottom:1rem;"><strong style="color:var(--text);">What I learned:</strong> Security hardening without a recovery path is not hardening, it is a liability. Every firewall configuration I write now includes an explicit SSH preservation rule and a tested recovery procedure documented before the ruleset is applied.</p>
-      <div style="font-family:var(--fm);font-size:.6rem;color:var(--green);letter-spacing:.1em;text-transform:uppercase;">Outcome: Recovery-first approach on all hardening work</div>
-    </div>
+### Linux process and network faults
 
-  </div>
-</section>
+Found runaway and failed processes, and traced service binding problems through socket inspection and configuration review.
 
-<!-- CONTACT -->
-<section class="sec" id="contact">
-  <div class="sec-hdr">
-    <div class="sec-eye">Get in Touch</div>
-    <h2 class="sec-ttl">Let's Connect</h2>
-  </div>
-  <div class="sec-rule"></div>
-  <div class="contact-wrap">
-    <div class="contact-left">
-      <h2 class="ch">Let's Build<br>Something <span class="go">Remarkable</span></h2>
-      <p class="cb">I started out fixing software problems for people around me. Today I design and implement cloud infrastructure to the same standards used by global enterprises, self-taught, hands-on, and production-focused. If you are looking for someone who diagnoses fast, builds reliably, and is ready to operate at a higher level within a strong team, I would love to connect.</p>
-      <a href="mailto:rinzeedeh.dev&#64;gmail.com" class="btn-g">Send Me an Email →</a>
-      <a href="https://github.com/arinze-edeh/arinze-edeh/raw/main/Arinze_Edeh_Resume.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:.6rem;padding:.7rem 1.6rem;background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.4);font-family:var(--fm);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;margin-top:.8rem;transition:all .2s;" onmouseover="this.style.background='rgba(201,168,76,.08)'" onmouseout="this.style.background='transparent'">Download Resume PDF ↓</a>
-    </div>
-    <div class="contact-right">
-      <a href="mailto:arinzeedeh.dev&#64;gmail.com" class="ci-item">
-        <div class="ci-ico">@</div>
-        <div><div class="ci-lbl">Email</div><div class="ci-val">arinzeedeh.dev&#64;gmail&#46;com</div></div>
-        <span class="ci-arr">→</span>
-      </a>
-      <a href="https://github.com/arinze-edeh" target="_blank" class="ci-item">
-        <div class="ci-ico">GH</div>
-        <div><div class="ci-lbl">GitHub, All Projects</div><div class="ci-val">github.com/arinze-edeh</div></div>
-        <span class="ci-arr">→</span>
-      </a>
-      <a href="https://linkedin.com/in/arinze-edeh" target="_blank" class="ci-item">
-        <div class="ci-ico">in</div>
-        <div><div class="ci-lbl">LinkedIn</div><div class="ci-val">linkedin.com/in/arinze-edeh</div></div>
-        <span class="ci-arr">→</span>
-      </a>
-      <div
+### EC2 not reachable from the internet
+
+Checked the route table, internet gateway, security group rules, and public IP in turn to find the blocking setting.
+
+### Azure VM without internet access
+
+Traced the fault through the VNet, subnet routes, network security group rules, and public IP association.
+
+Toolbox
+
+## What I work with, by layer
+
+### Cloud
+
+AWSAzureIAMVPC and VNet peeringLoad balancingKMS and Key VaultRDS and DynamoDB
+
+### Infrastructure as code
+
+TerraformAnsibleARM templatesCloudFormation
+
+### Containers
+
+Docker and ComposeKubernetesk3s, EKS, AKSHelmRBAC and Secrets
+
+### Pipelines
+
+JenkinsGitHub ActionsGitAutomated rollback
+
+### Security
+
+Least-privilege IAMSELinuxIPtablesNSGsSSH hardeningTLS
+
+### Observability
+
+PrometheusAlertmanagerGrafanaCloudWatchZabbixWazuh
+
+Where it started
+
+## The systems administration foundation
+
+Thirteen IT systems labs Windows Server, Active Directory, networking, monitoring, backup
+
+[01 Virtualization VirtualBox, NAT and host-only networking, snapshots](https://github.com/arinze-edeh/technical-projects-portfolio/tree/main/01_Virtualization) [02 Active Directory I Windows Server 2022 domain controller, OUs](https://github.com/arinze-edeh/technical-projects-portfolio/tree/main/02_ActiveDirectory_Setup) [03 Active Directory II Group Policy, NTFS delegation, domain join](https://github.com/arinze-edeh/technical-projects-portfolio/tree/main/03_ActiveDirectory_Lab_Part2) [04 Networking DHCP, DNS, Wireshark, fault isolation](https://github.com/arinze-edeh/technical-projects-portfolio/tree/main/04_Networking_Lab) [05 Windows troubleshooting Event Viewer, malware scan, system file repair](https://github.com/arinze-edeh/technical-projects-portfolio/tree/main/05_Windows_Troubleshooting_Lab) [06 Ticketing with GLPI Ticket lifecycle, SLA compliance, closure](https://github.com/arinze-edeh/technical-projects-portfolio/tree/main/06_TicketingSystem_Lab) [07 Linux server Ubuntu 24.04, SSH hardening, Apache, Nginx, cron](https://github.com/arinze-edeh/technical-projects-portfolio/tree/main/07_Linux_Lab) [08 PowerShell automation Safe-to-rerun Active Directory provisioning](https://github.com/arinze-edeh/technical-projects-portfolio/tree/main/08_PowerShell_Lab) [09 Azure fundamentals Resource groups, VMs, VNets, NSGs, RBAC](https://github.com/arinze-edeh/technical-projects-portfolio/tree/main/09_Azure_Lab) [10 AWS fundamentals Least-privilege IAM, EC2, security groups, S3](https://github.com/arinze-edeh/technical-projects-portfolio/tree/main/10_AWS_Lab) [11 Monitoring Zabbix, agent onboarding, alerts, Wazuh logs](https://github.com/arinze-edeh/technical-projects-portfolio/tree/main/11_Monitoring_Lab) [12 Backup and recovery Restore points, File History, snapshot rollback](https://github.com/arinze-edeh/technical-projects-portfolio/tree/main/12_Backup_Restore_Lab) [13 Patch management Update staging, validation, rollback](https://github.com/arinze-edeh/technical-projects-portfolio/tree/main/13_Patch_Management_Lab)
+
+[View the technical-projects-portfolio repository](https://github.com/arinze-edeh/technical-projects-portfolio)
+
+Credentials
+
+## Azure certified, security trained
+
+### MicrosoftExams passed
+
+DevOps Engineer Expert (AZ-400), Azure Administrator (AZ-104), Azure Fundamentals (AZ-900).
+
+### CourseraProfessional certificates
+
+IBM Cybersecurity Analyst. Google IT Support. Azure Security Engineer Associate (AZ-500) preparation. AWS Security Specialty (SCS-C02) preparation specialization with Packt.
+
+### University of the PeopleComputer Science
+
+B.Sc. with a 4.0 CGPA and a place on the President's List. Internal certificate in Network and Application Security.
+
+### Bee Tee Haulage and LogisticsIT systems and cloud support specialist
+
+Supported systems and cloud operations for a working logistics business.
+
+### Teaching and communitySkill Mountain, MMAUG, CloudPath Africa
+
+Cloud and DevOps instructor at Skill Mountain Academy, speaker at the Malta Microsoft AI User Group bootcamp, creator of CloudPath Africa, and Student Ambassador for the University of the People.
+
+## Hiring for cloud or DevOps?
+
+I am open to cloud, DevOps, platform, and infrastructure roles, remote or with relocation. Email is the fastest way to reach me.
+
+[Email me](mailto:edeharinze389@gmail.com)[LinkedIn](https://www.linkedin.com/in/arinze-edeh)[GitHub](https://github.com/arinze-edeh)[Download resume](https://raw.githubusercontent.com/arinze-edeh/arinze-edeh/main/Arinze_Edeh_Resume.pdf)
